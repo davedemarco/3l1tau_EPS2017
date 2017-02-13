@@ -1,0 +1,398 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{soul}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{graphicx} 
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{textpos}
+\usepackage{float}
+
+
+\MakeOuterQuote{"}
+
+\author{David A. DeMarco}
+\title{$t\bar{t}H$ $3\ell+\tau$ Run 2 analysis overview}
+
+%% 0=chapter, 1=section, 2=subsection, 3=subsubsection, etc.
+\setcounter{tocdepth}{2}
+
+
+\begin{document}
+
+	\maketitle
+	\begin{center}
+		stuff 
+	\end{center}	 
+	\clearpage 
+	
+	\section{Object selection} 
+	
+	\clearpage
+	\section{Event selection} 
+		Signal region event selection:
+		\begin{enumerate}
+			\item Exactly 3 light leptons
+			\item At least 1 trigger-matched light lepton 
+			\item Low-mass dilepton invariant mass cut ($m\ell\ell>12$ GeV) 
+			\item Z-mass dilepton invariant mass veto (Z mass = $91.2$ GeV with $10$ GeV window) 
+			\item Exactly 1 hadronic tau 
+			\item Total light lepton + hadronic tau charge == 0 
+			\item At least 2 jets
+			\item At least 1 b-tagged jet
+		\end{enumerate} 
+	\clearpage
+	\section{Baseline results} 
+		Signal region yields: \\
+		\resizebox{1.0\textwidth}{!}{
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			              & ttH              & top+X               & Rare             & VV                  & ttW (NLO)        & ttZ (NLO)        & Z+jets (NNPDF)         & W+jets (NNPDF)      & Sum bkg                \\
+			\hline
+			Input         & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
+			CutBlind      & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
+			CutEventClean & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
+			CutTrigger    & $42.72 \pm 0.47$ & $5760.55 \pm 47.14$ & $75.98 \pm 4.57$ & $3654.80 \pm 82.85$ & $41.76 \pm 0.59$ & $92.44 \pm 0.90$ & $85157.55 \pm 2166.03$ &  $236.20 \pm 92.38$ &  $95019.29 \pm 2170.09$\\
+			CutNLep3      &  $2.82 \pm 0.09$ &     $7.72 \pm 1.74$ &  $6.40 \pm 1.08$ &    $87.35 \pm 5.39$ &  $0.81 \pm 0.07$ & $11.49 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $142.86 \pm 19.39$\\
+			CutTrigMatch  &  $2.80 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.39 \pm 1.08$ &    $86.50 \pm 5.36$ &  $0.81 \pm 0.07$ & $11.45 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $141.62 \pm 19.38$\\
+			CutLowMass01  &  $2.79 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.39 \pm 1.08$ &    $86.72 \pm 5.35$ &  $0.81 \pm 0.07$ & $11.43 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $141.83 \pm 19.37$\\
+			CutLowMass02  &  $2.77 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.38 \pm 1.08$ &    $85.84 \pm 5.34$ &  $0.81 \pm 0.07$ & $11.37 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $140.88 \pm 19.37$\\
+			CutLowMass12  &  $2.77 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.38 \pm 1.08$ &    $85.84 \pm 5.34$ &  $0.81 \pm 0.07$ & $11.37 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $140.88 \pm 19.37$\\
+			CutZVeto01    &  $2.59 \pm 0.08$ &     $7.39 \pm 1.71$ &  $3.26 \pm 0.67$ &    $60.79 \pm 4.56$ &  $0.75 \pm 0.07$ &  $7.88 \pm 0.21$ &      $20.06 \pm 16.81$ &     $0.00 \pm 0.00$ &      $100.13 \pm 17.51$\\
+			CutZVeto02    &  $2.35 \pm 0.08$ &     $7.22 \pm 1.70$ &  $2.09 \pm 0.45$ &    $45.40 \pm 4.03$ &  $0.69 \pm 0.07$ &  $5.75 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $80.79 \pm 17.37$\\
+			CutZVeto12    &  $2.35 \pm 0.08$ &     $7.22 \pm 1.70$ &  $2.08 \pm 0.45$ &    $44.70 \pm 3.99$ &  $0.69 \pm 0.07$ &  $5.71 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $80.06 \pm 17.36$\\
+			CutNTau1      &  $2.36 \pm 0.08$ &     $7.40 \pm 1.73$ &  $2.12 \pm 0.46$ &    $47.35 \pm 4.31$ &  $0.69 \pm 0.07$ &  $5.77 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $82.97 \pm 17.44$\\
+			CutCharge0    &  $2.11 \pm 0.07$ &     $3.83 \pm 1.33$ &  $1.82 \pm 0.46$ &    $38.21 \pm 3.35$ &  $0.34 \pm 0.05$ &  $4.95 \pm 0.17$ &      $16.93 \pm 16.59$ &     $0.00 \pm 0.00$ &       $66.07 \pm 16.99$\\
+			CutNJet       &  $1.86 \pm 0.07$ &     $1.35 \pm 0.71$ &  $0.54 \pm 0.04$ &     $7.65 \pm 1.35$ &  $0.24 \pm 0.04$ &  $4.43 \pm 0.16$ &        $0.00 \pm 0.00$ &     $0.00 \pm 0.00$ &        $14.21 \pm 1.54$\\
+			CutNBJet      &  $1.51 \pm 0.06$ &     $0.90 \pm 0.64$ &  $0.23 \pm 0.03$ &     $0.33 \pm 0.20$ &  $0.16 \pm 0.04$ &  $3.58 \pm 0.15$ &        $0.00 \pm 0.00$ &     $0.00 \pm 0.00$ &         $5.20 \pm 0.69$\\
+			\hline
+			\end{tabular}}
+
+		Samples: \\
+		\resizebox{1.0\textwidth}{!}{
+			\begin{tabular}{|l|p{10cm}|}
+			\hline
+			ttH & \textcolor{blue}{343365} \textcolor{blue}{343366} \textcolor{blue}{343367} \\
+			\hline
+			top+X & \textcolor{blue}{410000} \textcolor{blue}{410011} \textcolor{blue}{410012} \textcolor{blue}{410013} \textcolor{blue}{410014} \textcolor{blue}{410025} \textcolor{blue}{410026} \\
+			\hline
+			Rare & \textcolor{blue}{342284} \textcolor{blue}{342285} \textcolor{blue}{361620} \textcolor{blue}{361621} \textcolor{blue}{361622} \textcolor{blue}{361623} \textcolor{blue}{361624} \textcolor{blue}{361625} \textcolor{blue}{361626} \textcolor{blue}{361627} \textcolor{blue}{410049} \textcolor{blue}{410080} \textcolor{blue}{410081} \\
+			\hline
+			VV & \textcolor{blue}{361063} \textcolor{blue}{361064} \textcolor{blue}{361065} \textcolor{blue}{361066} \textcolor{blue}{361067} \textcolor{blue}{361068} \textcolor{blue}{361069} \textcolor{blue}{361070} \textcolor{blue}{361071} \textcolor{blue}{361072} \textcolor{blue}{361073} \textcolor{blue}{361077} \textcolor{blue}{361091} \textcolor{blue}{361092} \textcolor{blue}{361093} \textcolor{blue}{361094} \textcolor{blue}{361095} \textcolor{blue}{361096} \textcolor{blue}{361097} \\
+			\hline
+			ttW (NLO) & \textcolor{blue}{410155} \\
+			\hline
+			ttZ (NLO) & \textcolor{blue}{410157} \textcolor{blue}{410218} \textcolor{blue}{410219} \textcolor{blue}{410220} \\
+			\hline
+			Z+jets (NNPDF) & \textcolor{blue}{363102} \textcolor{blue}{363103} \textcolor{blue}{363104} \textcolor{blue}{363105} \textcolor{blue}{363106} \textcolor{blue}{363107} \textcolor{blue}{363108} \textcolor{blue}{363109} \textcolor{blue}{363110} \textcolor{blue}{363111} \textcolor{blue}{363112} \textcolor{blue}{363113} \textcolor{blue}{363114} \textcolor{blue}{363115} \textcolor{blue}{363116} \textcolor{blue}{363117} \textcolor{blue}{363118} \textcolor{blue}{363119} \textcolor{blue}{363120} \textcolor{blue}{363121} \textcolor{blue}{363122} \textcolor{blue}{363361} \textcolor{blue}{363362} \textcolor{blue}{363363} \textcolor{blue}{363364} \textcolor{blue}{363365} \textcolor{blue}{363366} \textcolor{blue}{363367} \textcolor{blue}{363368} \textcolor{blue}{363369} \textcolor{blue}{363370} \textcolor{blue}{363371} \textcolor{blue}{363372} \textcolor{blue}{363373} \textcolor{blue}{363374} \textcolor{blue}{363375} \textcolor{blue}{363376} \textcolor{blue}{363377} \textcolor{blue}{363378} \textcolor{blue}{363379} \textcolor{blue}{363380} \textcolor{blue}{363381} \textcolor{blue}{363382} \textcolor{blue}{363383} \textcolor{blue}{363384} \textcolor{blue}{363385} \textcolor{blue}{363386} \textcolor{blue}{363387} \textcolor{blue}{363388} \textcolor{blue}{363389} \textcolor{blue}{363390} \textcolor{blue}{363391} \textcolor{blue}{363392} \textcolor{blue}{363393} \textcolor{blue}{363394} \textcolor{blue}{363395} \textcolor{blue}{363396} \textcolor{blue}{363397} \textcolor{blue}{363398} \textcolor{blue}{363399} \textcolor{blue}{363400} \textcolor{blue}{363401} \textcolor{blue}{363402} \textcolor{blue}{363403} \textcolor{blue}{363404} \textcolor{blue}{363405} \textcolor{blue}{363406} \textcolor{blue}{363407} \textcolor{blue}{363408} \textcolor{blue}{363409} \textcolor{blue}{363410} \textcolor{blue}{363411} \\
+			\hline
+			W+jets (NNPDF) & \textcolor{blue}{363331} \textcolor{blue}{363332} \textcolor{blue}{363333} \textcolor{blue}{363334} \textcolor{blue}{363335} \textcolor{blue}{363336} \textcolor{blue}{363337} \textcolor{blue}{363338} \textcolor{blue}{363339} \textcolor{blue}{363340} \textcolor{blue}{363341} \textcolor{blue}{363342} \textcolor{blue}{363343} \textcolor{blue}{363344} \textcolor{blue}{363345} \textcolor{blue}{363346} \textcolor{blue}{363347} \textcolor{blue}{363348} \textcolor{blue}{363349} \textcolor{blue}{363350} \textcolor{blue}{363351} \textcolor{blue}{363352} \textcolor{blue}{363353} \textcolor{blue}{363354} \textcolor{blue}{363436} \textcolor{blue}{363437} \textcolor{blue}{363438} \textcolor{blue}{363439} \textcolor{blue}{363440} \textcolor{blue}{363441} \textcolor{blue}{363442} \textcolor{blue}{363443} \textcolor{blue}{363444} \textcolor{blue}{363445} \textcolor{blue}{363446} \textcolor{blue}{363447} \textcolor{blue}{363448} \textcolor{blue}{363449} \textcolor{blue}{363450} \textcolor{blue}{363451} \textcolor{blue}{363452} \textcolor{blue}{363453} \textcolor{blue}{363454} \textcolor{blue}{363455} \textcolor{blue}{363456} \textcolor{blue}{363457} \textcolor{blue}{363458} \textcolor{blue}{363459} \textcolor{blue}{363460} \textcolor{blue}{363461} \textcolor{blue}{363462} \textcolor{blue}{363463} \textcolor{blue}{363464} \textcolor{blue}{363465} \textcolor{blue}{363466} \textcolor{blue}{363467} \textcolor{blue}{363468} \textcolor{blue}{363469} \textcolor{blue}{363470} \textcolor{blue}{363471} \textcolor{blue}{363472} \textcolor{blue}{363473} \textcolor{blue}{363474} \textcolor{blue}{363475} \textcolor{blue}{363476} \textcolor{blue}{363477} \textcolor{blue}{363478} \textcolor{blue}{363479} \textcolor{blue}{363480} \textcolor{blue}{363481} \textcolor{blue}{363482} \textcolor{blue}{363483} \\
+			\hline
+			\end{tabular}}
+
+%%%%% Fake estimate studies %%%%%
+	\clearpage
+	\section{Fake estimate studies} 
+		Baseline strategy for estimating background contribution from events with a fake hadronic tau is as follows: 
+		\begin{itemize}
+			\item Calculate fake tau scale factor in some high stats $2\ell OS+\tau$ control regions  
+				\begin{itemize}
+					\item Remaining orthogonal to $2\ell OS+\tau$ analysis signal region
+				\end{itemize} 
+			\item Apply scale factor in $3\ell+\tau$
+			\item Perform closure test in ttbar MC 
+		\end{itemize}
+
+		Challenges associated with this strategy: 
+		\begin{itemize} 
+			\item Closure tests in MC are very stats-limited in $3\ell+\tau$ region - difficult to assess closure 
+			\item Must use control regions orthogonal to $2\ell OS+\tau$ - ultimately may need to directly collaborate with analysis for control regions
+			\item 
+		\end{itemize} 
+
+%%%%% Baseline results %%%%%
+		\clearpage
+		\subsection{Baseline results} 
+		CR definition: 
+		\begin{itemize} 
+			\item Same objects as $3\ell+\tau$
+			\item Exactly 2 leptons, opposite sign 
+			\item Exactly 1 tau, no sign requirement 
+			\item All other event cuts the same as the SR
+		\end{itemize} 
+
+		$2\ell OS+\tau_{had}$ CR, Tight light leptons: 
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			  & AntiTau,VeryLoose & Medium Tau \\
+			 \hline
+			 ttbar MC & $29047.87 \pm 104.44$   & $1824.09 \pm 26.17$     \\
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+		$2\ell OS+\tau_{had}$ CR, Loose light leptons:
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			  & AntiTau,VeryLoose & Medium Tau \\
+			 \hline
+			 ttbar MC & $32782.76 \pm 112.37$        & $2084.10 \pm 28.33$     \\
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+			\begin{itemize}
+		\item Apply $2\ell OS+\tau_{had}$ scale factors to extrapolate from $3\ell+\tau_{had}$(AntiTau) to SR 
+		\item Nominal signal region is Tight light leptons, Medium taus 
+	\end{itemize}
+	
+	$3\ell+\tau_{had}$, Tight light leptons def'n
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			                   & AntiTau VeryLoose & Medium Tau \\
+			 \hline
+			 MC (ttbar) prediction &         $9.16 \pm 1.83$        & $0.90 \pm 0.64$     \\
+			 Scaled MC                &     -         & $\approx 0.58$     \\  
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+	$3\ell+\tau_{had}$, Loose light leptons def'n
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			                   & AntiTau VeryLoose & Medium Tau \\
+			 \hline
+			 MC (ttbar) prediction &         $21.69 \pm 2.79$        & $0.70 \pm 0.44$     \\
+			 Scaled MC                &       -       &   $\approx 1.35$   \\  
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+%%%%% Fake estimate control region flavour composition %%%%%
+		\newpage
+		\subsection{Fake estimate control region flavour composition} 
+		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 3 jets 
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			  & AntiTau,VeryLoose & Medium Tau \\
+			 \hline
+			 ttbar MC & $14199.32 \pm 72.60$   & $892.27 \pm 18.14$     \\
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 4 jets
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			  & AntiTau,VeryLoose & Medium Tau \\
+			 \hline
+			 ttbar MC & $5740.30 \pm 45.85$        & $366.76 \pm 11.58$     \\
+			\hline 
+		\end{tabular}
+	\end{table}%
+
+		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 5 jets 
+	\begin{table}[h!]
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			  & AntiTau,VeryLoose & Medium Tau \\
+			 \hline
+			 ttbar MC & $2032.23 \pm 27.06$        & $128.13 \pm 6.69$     \\
+			\hline 
+		\end{tabular}
+	\end{table}%
+	
+
+%%%%% v26 yields %%%%%
+	\newpage
+	\section{Yields with v26\_02 group ntuples} 
+	
+	3l1tau, LepTight, TauMedium\\
+	\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutBlind      & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutEventClean & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutTrigger    & $5424.63 \pm 48.54$ & $398.20 \pm 11.32$ & $5822.84 \pm 49.84$\\
+CutNLep3      &    $34.10 \pm 4.82$ &    $2.01 \pm 0.75$ &    $36.11 \pm 4.88$\\
+CutTrigMatch  &    $33.39 \pm 4.80$ &    $2.01 \pm 0.75$ &    $35.40 \pm 4.86$\\
+CutLowMass01  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
+CutLowMass02  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
+CutLowMass12  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
+CutNTau1      &    $32.71 \pm 4.82$ &    $2.06 \pm 0.77$ &    $34.77 \pm 4.88$\\
+CutCharge0    &    $16.70 \pm 2.50$ &    $0.82 \pm 0.42$ &    $17.53 \pm 2.54$\\
+CutNJet       &     $7.54 \pm 1.62$ &    $0.00 \pm 0.00$ &     $7.54 \pm 1.62$\\
+CutNBJet      &     $2.59 \pm 0.92$ &    $0.00 \pm 0.00$ &     $2.59 \pm 0.92$\\
+CutZVeto01    &     $2.34 \pm 0.88$ &    $0.00 \pm 0.00$ &     $2.34 \pm 0.88$\\
+CutZVeto02    &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
+CutZVeto12    &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
+CutZVeto      &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
+\hline
+\end{tabular}
+
+3l1tau, LepTightMVA, TauMedium \\
+\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutBlind      & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutEventClean & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
+CutTrigger    & $5424.63 \pm 48.54$ & $398.20 \pm 11.32$ & $5822.84 \pm 49.84$\\
+CutNLep3      &    $34.10 \pm 4.82$ &    $2.01 \pm 0.75$ &    $36.11 \pm 4.88$\\
+CutPromptLep0 &    $33.64 \pm 4.81$ &    $2.01 \pm 0.75$ &    $35.65 \pm 4.87$\\
+CutPromptLep1 &    $24.78 \pm 4.53$ &    $1.38 \pm 0.66$ &    $26.16 \pm 4.58$\\
+CutPromptLep2 &     $0.81 \pm 0.47$ &    $0.00 \pm 0.00$ &     $0.81 \pm 0.47$\\
+CutTrigMatch  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
+CutLowMass01  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
+CutLowMass02  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
+CutLowMass12  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
+CutNTau1      &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
+CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+\hline
+\end{tabular}
+
+3l1tau, LepLoose (Gradient Iso), TauMedium \\
+\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutBlind      & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutEventClean & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutTrigger    & $4592.20 \pm 44.73$ & $320.11 \pm 10.30$ & $4912.32 \pm 45.90$\\
+CutNLep3      &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
+CutTrigMatch  &     $9.38 \pm 1.75$ &    $0.66 \pm 0.48$ &    $10.04 \pm 1.81$\\
+CutLowMass01  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
+CutLowMass02  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
+CutLowMass12  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
+CutNTau1      &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
+CutCharge0    &     $4.05 \pm 1.13$ &    $0.24 \pm 0.24$ &     $4.29 \pm 1.15$\\
+CutNJet       &     $2.11 \pm 0.90$ &    $0.00 \pm 0.00$ &     $2.11 \pm 0.90$\\
+CutNBJet      &     $1.15 \pm 0.75$ &    $0.00 \pm 0.00$ &     $1.15 \pm 0.75$\\
+CutZVeto01    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
+CutZVeto02    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
+CutZVeto12    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
+CutZVeto      &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
+\hline
+\end{tabular}
+
+3l1tau, LepLoose (Gradient Iso) MVA, TauMedium\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutBlind      & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutEventClean & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
+CutTrigger    & $4592.20 \pm 44.73$ & $320.11 \pm 10.30$ & $4912.32 \pm 45.90$\\
+CutNLep3      &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
+CutPromptLep0 &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
+CutPromptLep1 &     $7.96 \pm 1.62$ &    $0.42 \pm 0.42$ &     $8.38 \pm 1.67$\\
+CutPromptLep2 &     $0.77 \pm 0.45$ &    $0.00 \pm 0.00$ &     $0.77 \pm 0.45$\\
+CutTrigMatch  &     $0.50 \pm 0.36$ &    $0.00 \pm 0.00$ &     $0.50 \pm 0.36$\\
+CutLowMass01  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
+CutLowMass02  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
+CutLowMass12  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
+CutNTau1      &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
+CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+\hline
+\end{tabular}
+
+3l1tau, LepLoose (Loose iso), TauMedium \\
+\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutBlind      & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutEventClean & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutTrigger    & $6078.41 \pm 51.21$ & $444.74 \pm 11.89$ & $6523.15 \pm 52.57$\\
+CutNLep3      &    $43.88 \pm 5.26$ &    $2.07 \pm 0.78$ &    $45.95 \pm 5.31$\\
+CutTrigMatch  &    $43.13 \pm 5.24$ &    $2.07 \pm 0.78$ &    $45.21 \pm 5.30$\\
+CutLowMass01  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
+CutLowMass02  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
+CutLowMass12  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
+CutNTau1      &    $41.50 \pm 5.24$ &    $2.12 \pm 0.79$ &    $43.62 \pm 5.30$\\
+CutCharge0    &    $21.81 \pm 2.82$ &    $0.85 \pm 0.43$ &    $22.66 \pm 2.85$\\
+CutNJet       &    $10.27 \pm 1.89$ &    $0.00 \pm 0.00$ &    $10.27 \pm 1.89$\\
+CutNBJet      &     $4.15 \pm 1.18$ &    $0.00 \pm 0.00$ &     $4.15 \pm 1.18$\\
+CutZVeto01    &     $3.89 \pm 1.16$ &    $0.00 \pm 0.00$ &     $3.89 \pm 1.16$\\
+CutZVeto02    &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
+CutZVeto12    &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
+CutZVeto      &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
+\hline
+\end{tabular}
+
+3l1tau, LepLoose (Loose iso) MVA, TauMedium\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+              & ttbar               & single top         & Sum bkg            \\
+\hline
+Input         & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutBlind      & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutEventClean & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
+CutTrigger    & $6078.41 \pm 51.21$ & $444.74 \pm 11.89$ & $6523.15 \pm 52.57$\\
+CutNLep3      &    $43.88 \pm 5.26$ &    $2.07 \pm 0.78$ &    $45.95 \pm 5.31$\\
+CutPromptLep0 &    $42.57 \pm 5.22$ &    $2.07 \pm 0.78$ &    $44.64 \pm 5.28$\\
+CutPromptLep1 &    $31.26 \pm 4.89$ &    $1.42 \pm 0.68$ &    $32.68 \pm 4.94$\\
+CutPromptLep2 &     $1.11 \pm 0.56$ &    $0.00 \pm 0.00$ &     $1.11 \pm 0.56$\\
+CutTrigMatch  &     $0.84 \pm 0.49$ &    $0.00 \pm 0.00$ &     $0.84 \pm 0.49$\\
+CutLowMass01  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
+CutLowMass02  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
+CutLowMass12  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
+CutNTau1      &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
+CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
+\hline
+\end{tabular}
+
+
+
+
+\end{document} 
+
+
+
