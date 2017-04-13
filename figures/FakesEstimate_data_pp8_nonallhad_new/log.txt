@@ -1,0 +1,100 @@
+Now rebinning...
+All histogram yields AFTER rebinning...
+Numerator region 2lOStau_CR_TightLepMVA_TauMedium_eq2j_ge1b......
+
+ttH total tau hist Num: 2.46660520519\pm0.0802792371557
+Prompt total tau hist Num: 4.08447406997\pm0.272738122009
+Nonprompt total tau hist Num: 920.070539652\pm21.2029204774
+ttH Real tau hist Num: 2.06149727688\pm0.0725910683891
+Prompt Real tau hist Num: 2.90572740954\pm0.234419722857
+Nonprompt Real tau hist Num: 34.5861683775\pm3.06833323261
+Data  hist Num: 951.0
+Denonimator region 2lOStau_CR_TightLepMVA_TauVeryLooseNotMedium_eq2j_ge1b......
+
+ttH total tau hist Den: 4.39940134443\pm0.108461988991
+Prompt total tau hist Den: 9.58857965776\pm0.608420737452
+Nonprompt total tau hist Den: 8647.66588492\pm59.0756716051
+ttH Real tau hist Den: 0.677806337076\pm0.042938570445
+Prompt Real tau hist Den: 1.64280383258\pm0.337653535211
+Nonprompt Real tau hist Den: 199.712188441\pm8.53312811333
+Data  hist Den: 8271.0
+Extrapolation region 3ltau_SR_TightLepMVA_TauVeryLooseNotMedium.....
+
+ttH total tau hist Extrap: 2.27841932771\pm0.109548209331
+Prompt total tau hist Extrap: 3.71611446843\pm0.706097709909
+Nonprompt total tau hist Extrap: 6.24950589411\pm1.19978240177
+ttH Real tau hist Extrap: -4.59844932506\pm5.44839519209
+Prompt Real tau hist Extrap: 0.723113387117\pm0.0743128942764
+Nonprompt Real tau hist Extrap: 0.0513085255526\pm0.0108822867303
+Data  hist Extrap: 8.0
+Data  hist Extrap: 8.000000
+Signal region 3ltau_SR_TightLepMVA_TauMedium......
+
+ttH total tau hist SR: 1.67526025716\pm0.0778865377614
+Prompt total tau hist SR: 2.70031496676\pm0.146543448966
+Nonprompt total tau hist SR: 0.51034356099\pm0.213410147324
+ttH Real tau hist SR: 1.40993580355\pm0.0635491295662
+Prompt Real tau hist SR: 1.84164256028\pm0.121733183158
+Nonprompt Real tau hist SR: 0.117311177541\pm0.0274597095711
+Performing subtraction procedure...
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_All bkg - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_Prompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_Prompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_Nonprompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_Nonprompt MC - truth-match.pdf has been created
+^@Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/FF_Faketau_Data - truth-match MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_All bkg - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_Prompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_Prompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_Nonprompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_Nonprompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_SRMC_All bkg - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_SRMC_Prompt MC.pdf has been created
+^@Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_SRMC_Prompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_SRMC_Nonprompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_SRMC_Nonprompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_All bkg - truth-match.pdf has been created
+^@Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_Prompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_Prompt MC - truth-match.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_Nonprompt MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_Nonprompt MC - truth-match.pdf has been created
+^@Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/Overlay_FF_tau_pt_bkg.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/Overlay_FF_tau_pt_prompt.pdf has been created
+^@Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/Overlay_FF_tau_pt_nonprompt.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_Extrapolation_Data - truth-match MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/hist_FakeEstimate_Data - truth-match MC.pdf has been created
+Info in <TCanvas::Print>: pdf file FakesEstimate_data_pp8_nonallhad_new/Overlay_FF_tau_pt_data.pdf has been created
+
+SR yields: 1.36902   Error: 0.30655
+Fake yields: 0.96121   Error: 0.15915
+TOTAL NON_CLOSURE in All bkg - truth-match: -29.789  Err: 19.553
+TOTAL NON_CLOSURE (mc-fake/fake) in All bkg - truth-match: 42.427  Err: 39.664
+
+
+SR yields: 2.70031   Error: 0.14654
+Fake yields: 1.71232   Error: 0.25677
+TOTAL NON_CLOSURE in Prompt MC: -36.588  Err: 10.113
+TOTAL NON_CLOSURE (mc-fake/fake) in Prompt MC: 57.699  Err: 25.149
+
+
+SR yields: 0.85867   Error: 0.19051
+Fake yields: 0.47137   Error: 0.17779
+TOTAL NON_CLOSURE in Prompt MC - truth-match: -45.104  Err: 24.022
+TOTAL NON_CLOSURE (mc-fake/fake) in Prompt MC - truth-match: 82.164  Err: 79.713
+
+
+SR yields: 0.51034   Error: 0.21341
+Fake yields: 0.66140   Error: 0.12996
+TOTAL NON_CLOSURE in Nonprompt MC: 29.598  Err: 59.879
+TOTAL NON_CLOSURE (mc-fake/fake) in Nonprompt MC: -22.838  Err: 35.651
+
+
+SR yields: 0.39303   Error: 0.21517
+Fake yields: 0.64612   Error: 0.12806
+TOTAL NON_CLOSURE in Nonprompt MC - truth-match: 64.394  Err: 95.716
+TOTAL NON_CLOSURE (mc-fake/fake) in Nonprompt MC - truth-match: -39.171  Err: 35.417
+
+Data estimate, w. subtraction: 0.712210697082 +- 0.370145801414
+__main__: INFO - Processed 0 region(s)
+__main__: INFO - Current time: Tue Apr 11 02:52:05 2017
+__main__: INFO - Total job time: 461.1s
