@@ -24,6 +24,11 @@
 \usepackage{tabularx}
 \usepackage{textpos}
 \usepackage{float}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 
 \MakeOuterQuote{"}
@@ -39,11 +44,630 @@
 
 	\maketitle
 	\begin{center}
-		stuff 
 	\end{center}	 
 	\clearpage 
 	
-	\section{Object selection} 
+
+	
+	\section{Fake $\tau_{had}$ estimate} 
+	\subsection{Fake factor method} 
+	A fake factor method is used to estimate the background contribution from processes with a fake hadronic tau. The fake $\tau_{had}$ estimate is extrapolated from a region that is enriched in the relevant backgrounds, primarily $t\bar{t}$, using a fake factor derived in a high-stats $2\ell OS+\tau_{had}$ region. The fake factor represents the probability of a $\tau_{had}$ that passes a loosened selection to pass the tight selection. It is parametrized in bins of $p_T$ of the $\tau_{had}$ and is computed as the ratio of events with a good $\tau_{had}$ and those with an anti-$\tau_{had}$. \\
+	
+	\begin{equation}
+		FF(p_T) = \frac{N_\tau (p_T)}{N_{\cancel{\tau}} (p_T)  }   
+	\end{equation}
+
+	\begin{table}[htp]
+		\caption{Fake factor derivation regions} 
+		\begin{center}
+			\begin{tabular}{|c|c|}
+			\hline
+			Good $\tau_{had}$ (numerator) region		& Anti-$\tau_{had}$ (denominator) region	\\
+			\hline
+			$2\ell \text{(OS)}+\tau_{had}$ 			& $2\ell \text{(OS)}+\cancel{\tau}_{had}$\\
+			$==2$ jets, $>=1$ b-jets				& $==2$ jets, $>=1$ b-jets\\
+			$\tau_{had}$ (Medium $\tau_{had}$ ID) 	& $\cancel{\tau}_{had}$ (Very Loose $\tau_{had}$ ID and not Medium) \\
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}%
+
+	The 2-jet selection above ensures orthogonality with the $2\ell \text{(OS)}+\tau_{had}$ channel signal region and can be used for extrapolation because the fake factor is flat with respect to jet multiplicity (ADD FIGURE AND REFERENCE). The $p_T$-dependent fake factor is applied to a $3\ell+\cancel{\tau}_{had}$ sideband extrapolation region which has an identical selection to the signal region but with an anti-$\tau_{had}$. 
+	
+	\begin{table}[htp]
+		\caption{Fake estimate extrapolation region} 
+		\begin{center}
+			\begin{tabular}{|c|}
+			\hline
+			Extrapolation sideband region	\\
+			\hline
+			$3\ell+\cancel{\tau}_{had}$ 	\\
+			$>=2$ jets, $>=1$ b-jets	\\
+			$\cancel{\tau}_{had}$ (Very Loose $\tau_{had}$ ID and not Medium) \\
+			\hline
+			\end{tabular}
+		\end{center}
+	\end{table}%
+	
+	In Table \ref{yields}, the MC yields are listed for the fake factor derivation and extrapolation regions and for the $3\ell+\tau_{had}$ signal region. Background processes listed as prompt are those which may yield a $3\ell+\tau_{had}$ final state without an object faking a light lepton or $\tau_{had}$ while non-prompt processes are those which require a faked object. The full list of processes, samples and their categoration can be found in Table \ref{mc_samples}. 
+	
+	\begin{table}[htp]
+		\caption{Nominal Monte Carlo yields for fake estimate regions and for the $3\ell+\tau_{had}$ signal region ($t\bar{t}$ from Powheg+Pythia8 non-all hadronic low stats). Entries labeled "true" require the $\tau_{had}$ to be truth-matched.  }
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Process				& Numerator 			& Denominator 		& Extrapolation 			& SR MC \\
+			\hline
+			$t\bar{t}H$			& $2.467\pm0.080$	& $4.399\pm0.108$	& $2.278\pm0.110$		& $1.675\pm0.078$\\
+			Prompt bkg			& $4.084\pm0.273$	& $9.589\pm0.608$	& $3.716\pm0.706$		& $2.700\pm0.147$\\
+			Prompt bkg. (true)		& $2.906\pm0.234$	& $1.643\pm0.338$	& $0.723\pm0.074$		& $1.842\pm0.122$\\
+			Non-prompt bkg.		& $920.07\pm21.20$	& $8647.67\pm59.08$	& $6.250\pm1.200$		& $0.510\pm0.213$\\
+			Non-prompt bkg (true)	& $34.59\pm3.07$		& $199.71\pm8.53$	& $0.051\pm0.011$		& $0.117\pm0.028$\\
+			\hline
+			\end{tabular}
+		\end{center}
+		\label{yields}
+	\end{table}%
+	
+	\begin{table}
+\resizebox{1.0\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+                 & ttH                & ttZ                  & Rare prompt            & Nonprompt                & ttbar                    & Sum bkg                     \\
+\hline
+Loose leptons      &  $124.63 \pm 0.80$ &    $530.60 \pm 1.96$ &   $8407.69 \pm 158.88$ &        $65597.72 \pm 766.32$ &     $24430.22 \pm 90.19$ &        $98966.23 \pm 787.80$\\
+Tight leptons   &   $55.15 \pm 0.54$ &    $321.57 \pm 1.37$ &    $3054.69 \pm 35.20$ &        $10148.02 \pm 155.36$ &       $484.23 \pm 12.51$ &        $14008.51 \pm 159.79$\\
+Trigger-match    &   $54.85 \pm 0.53$ &    $321.02 \pm 1.37$ &    $3021.01 \pm 35.06$ &        $10086.83 \pm 153.61$ &       $479.41 \pm 12.46$ &        $13908.27 \pm 158.05$\\
+Z-veto     &   $46.81 \pm 0.49$ &     $80.71 \pm 0.71$ &    $1758.00 \pm 23.77$ &         $2698.82 \pm 115.74$ &       $421.55 \pm 11.79$ &         $4959.07 \pm 118.74$\\
+Low-mass veto     &   $46.27 \pm 0.49$ &     $76.56 \pm 0.69$ &    $1599.28 \pm 22.52$ &         $2456.71 \pm 111.58$ &       $412.77 \pm 11.68$ &         $4545.32 \pm 114.43$\\
+NTau==1         &    $2.52 \pm 0.09$ &      $3.46 \pm 1.27$ &       $11.46 \pm 1.88$ &              $8.30 \pm 2.46$ &          $1.97 \pm 0.76$ &             $25.19 \pm 3.43$\\
+Total charge==0   &    $2.33 \pm 0.09$ &      $3.16 \pm 0.15$ &       $10.39 \pm 1.79$ &              $5.72 \pm 1.75$ &          $1.12 \pm 0.63$ &             $20.39 \pm 2.59$\\
+NJet $\ge$2       &    $2.04 \pm 0.08$ &      $2.77 \pm 0.14$ &        $2.75 \pm 0.70$ &              $1.27 \pm 0.37$ &          $0.38 \pm 0.27$ &              $7.18 \pm 0.85$\\
+NBjet $\ge$1        &    $1.68 \pm 0.08$ &      $2.26 \pm 0.13$ &        $0.44 \pm 0.07$ &              $0.30 \pm 0.04$ &          $0.21 \pm 0.21$ &              $3.21 \pm 0.26$\\
+Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0.06$ &              $0.12 \pm 0.03$ &          $0.00 \pm 0.00$ &              $1.96 \pm 0.12$\\
+\hline
+\end{tabular}}
+\end{table}
+
+	
+	\clearpage
+	\subsection{MC estimate results and closure tests} 
+	 To check the closure of this procedure, the extrapolation is performed and the integrated value compared with the signal region yield in MC. Closure is calculated as:
+
+	\begin{equation}
+		\frac{\text{(MC yield - Fake estimate)}}{\text{Fake estimate}}\times100\%
+	\end{equation} 
+
+	\subsubsection{Estimate w. background subtraction} 
+	The fake factor is calculated for fake $\tau_{had}$ by subtracting all signal $t\bar{t}H$ events and background events which are matched to a true $\tau_{had}$ from the total Monte Carlo (or data) yield: 
+	\begin{equation}
+		FF(p_T)_{\text{MC (data)}} = \frac{N_\tau (p_T)^{\text{All MC (data)}} - N_\tau (p_T)^{\text{Truth-matched MC}} - N_\tau (p_T)^{t\bar{t}H \text{MC}} }{N_{\cancel{\tau}} (p_T)^{\text{All MC (data)}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched MC}} - N_{\cancel{\tau}} (p_T)^{t\bar{t}H \text{MC}} }
+	\end{equation}
+	The estimate from fake taus in the signal region is then computed by applying these fake factors to the $3\ell+\cancel{\tau}$ extrapolation region: 
+	\begin{equation}
+		N_{\tau} (p_T)^{\text{fakes}} = FF(p_T)_{\text{MC (data)}}\cdot\big[N_{\cancel{\tau}} (p_T)^{\text{All MC (data)}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched MC}} - N_{\cancel{\tau}} (p_T)^{t\bar{t}H \text{MC}} \big]
+	\end{equation}
+	
+	Results are shown below using four different Powheg+Pythia8 $t\bar{t}$ samples. The PP8 sample listed (DSID 410501) is the baseline, and is compared with a dilepton-filtered sample (DSID 410503) and two higher-stats productions. Figures are produced using the non-all hadronic high-stats sample. 
+
+	\begin{table}[htp]
+	\caption{Extrapolation and closure test, (All MC - Truth-matched MC - $t\bar{t}H$) }
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$t\bar{t}$ sample 	& Integrated fake estimate	& SR MC	&  Closure \\
+	\hline
+	PP8 non-all hadronic			& 	$0.869\pm0.171$ 		& $1.446\pm0.462$ 		& $66\pm62$\% \\
+	PP8 non-all hadronic, high stats	& 	$0.941\pm0.157$ 		& $1.252\pm0.308$		& $33\pm40$\% \\
+	PP8 dilepton 					& 	$0.733\pm0.136$ 		& $1.273\pm0.323$		& $74\pm55$\% \\
+	PP8 dilepton, high stats			& 	$0.806\pm0.125$ 		& $1.447\pm0.327$ 		& $80\pm49$\% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+		
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/FF_Faketau_Bkg-truth.pdf}
+  	\caption{$p_T$-parametrized fake factors}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/hist_Extrapolation_Bkg-truth.pdf}
+	\caption{Extrapolation sideband region $p_T$ spectrum}
+	\end{subfigure}
+	\caption{Fake factors and extrapolation sideband region, (All MC - Truth-matched MC - $t\bar{t}H$)}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/hist_FakeEstimate_Bkg-truth.pdf}
+  	\caption{Fake estimate in $p_T$ bins}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/hist_SRMC_Bkg-truth.pdf}
+	\caption{MC SR yield in $p_T$ bins}
+	\end{subfigure}
+	\caption{$p_T$ spectra for fake estimate and MC yield, (All MC - Truth-matched MC - $t\bar{t}H$)}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/Overlay_FF_tau_pt_bkg.pdf}
+		\caption{Overlaid fake estimate and MC prediction (All MC - Truth-matched MC - $t\bar{t}H$)}
+	\end{figure}
+
+
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/Overlay_FF_CompareFF_prompt_nonprompt.pdf}
+  	\caption{Prompt (red) and non-prompt (blue)  }
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=1.\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_SubtractionFix_newOverlay/Overlay_FF_CompareFF_all.pdf}
+	\caption{Prompt, non-prompt and combined (green) }
+	\end{subfigure}
+	\caption{Comparison of fake factors derived from prompt MC, non-prompt MC and from the full combined (prompt + non-prompt - truth) method}
+	\end{figure}
+	
+			
+		
+		
+	\clearpage
+	\subsection{Estimate with non-prompt MC - truth-matched} 
+	\begin{equation}
+		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Non-prompt MC}} - N_\tau (p_T)^{\text{Truth-matched non-prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Non-prompt MC}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched non-prompt MC}}}
+	\end{equation}
+
+	\begin{table}[htp]
+	\caption{Extrapolation and closure test, (Non-prompt MC - truth-matched)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	$t\bar{t}$ sample 	& Integrated fake estimate	& SR MC		&  	Raw, total ($t\bar{t}$) 	& Closure \\
+	\hline
+	PP8 non-all hadronic			& 	$0.574\pm0.143$ 		& $0.587\pm0.406$ 		& 138 (1)	&  $2\pm75$\% \\
+	PP8 non-all hadronic, high stats	& 	$0.646\pm0.128$ 		& $0.393\pm0.215$ 		& 138 (1)	&  $-39\pm35$\% \\
+	PP8 dilepton 					& 	$0.442\pm0.104$ 		& $0.414\pm0.236$ 		& 138 (1)	&  $-6\pm58$\% \\
+	PP8 dilepton, high stats			& 	$0.519\pm0.088$ 		& $0.588\pm0.242$ 		& 140 (3)	&  $13\pm51$\% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+		
+	Figures are produced using the non-all hadronic high-stats sample. 
+		
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/FF_Faketau_Nonprompt-truth.pdf}
+  	\caption{$p_T$-parametrized fake factors}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_Extrapolation_Nonprompt-truth.pdf}
+	\caption{Extrapolation sideband region $p_T$ spectrum}
+	\end{subfigure}
+	\caption{Fake factors and extrapolation sideband region, (Non-prompt MC - truth)}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_FakeEstimate_Nonprompt-truth.pdf}
+  	\caption{Fake estimate in $p_T$ bins}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_SRMC_Nonprompt-truth.pdf}
+	\caption{MC SR yield in $p_T$ bins}
+	\end{subfigure}
+	\caption{$p_T$ spectra for fake estimate and MC yield, (Non-prompt MC - truth)}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_nonprompt-truth.pdf}
+		\caption{Overlaid fake estimate and MC prediction (Non-prompt MC - truth)}
+	\end{figure}	
+
+		\begin{table}[htp]
+		\caption{Raw yield comparison for signal region comparing low-stats $t\bar{t}$ non-all hadronic and dilepton low-stats samples}
+		\resizebox{1.0\textwidth}{!}{
+ 		\begin{tabular}{|c|c|c|c|c|c|}
+ 		\hline
+ 			              & ttH                        & Prompt bkg                 & Nonprompt bkg (no ttbar)                 & ttbar non-all hadronic                     & ttbar dilepton                               \\
+		\hline
+		Input            & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $11452200.000 \pm 3384.110$ & $6562556.000 \pm 2561.749$ \\
+ 		CutBlind         & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $11452200.000 \pm 3384.110$ & $6562556.000 \pm 2561.749$ \\
+		Cleaning         & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $11452200.000 \pm 3384.110$ & $6562556.000 \pm 2561.749$ \\
+		CutSLORDLTrigger & $5124841.000 \pm 2263.811$ & $4621965.000 \pm 2149.876$ & $120080497.000 \pm 10958.125$ &  $7944424.000 \pm 2818.585$ & $5279307.000 \pm 2297.674$ \\
+		Cut3Leptons      &   $247338.000 \pm 497.331$ &   $770943.000 \pm 878.034$ &    $1235939.000 \pm 1111.728$ &     $51759.000 \pm 227.506$ &    $80321.000 \pm 283.410$\\
+ 		CutLepTightMVA   &   $103371.000 \pm 321.514$ &   $466468.000 \pm 682.985$ &      $574917.000 \pm 758.233$ &        $996.000 \pm 31.559$ &      $1639.000 \pm 40.485$ \\
+		CutTrigFlat      &   $102924.000 \pm 320.818$ &   $465119.000 \pm 681.996$ &      $574130.000 \pm 757.714$ &        $987.000 \pm 31.417$ &      $1624.000     \pm 40.299$    \\
+		CutZCandVeto     &    $88789.000 \pm 297.975$ &   $121906.000 \pm 349.150$ &      $105100.000 \pm 324.191$ &        $869.000 \pm 29.479$ &      $1409.000     \pm 37.537$  \\
+		CutLowMass12     &    $87981.000 \pm 296.616$ &   $115654.000 \pm 340.079$ &      $102436.000 \pm 320.056$ &        $849.000 \pm 29.138$ &      $1390.000     \pm 37.283$   \\
+		CutNTau          &      $5888.000 \pm 76.733$ &      $4825.000 \pm 69.462$ &          $896.000 \pm 29.933$ &           $4.000 \pm 2.000$ &          $4.000     \pm 2.000$\\
+		Cut3LepCharge    &      $5519.000 \pm 74.290$ &      $4080.000 \pm 63.875$ &          $613.000 \pm 24.759$ &           $4.000 \pm 2.000$ &          $3.000     \pm 1.732$ \\
+		CutNJet          &      $4991.000 \pm 70.647$ &      $3004.000 \pm 54.809$ &          $356.000 \pm 18.868$ &           $2.000 \pm 1.414$ &          $1.000     \pm 1.000$ \\
+ 		Cut1BTag         &      $4113.000 \pm 64.133$ &      $2173.000 \pm 46.615$ &          $237.000 \pm 15.395$ &           $1.000 \pm 1.000$ &          $1.000     \pm 1.000$ \\
+ 		CutTauTruthMatch &      $3627.000 \pm 60.225$ &      $1354.000 \pm 36.797$ &          $100.000 \pm 10.000$ &           $0.000 \pm 0.000$ &          $0.000     \pm 0.000$ \\
+ 		\hline
+ 		\end{tabular}}
+	\end{table}
+		
+	\begin{table}[htp]
+		\caption{Raw yield comparison for signal region comparing low-stats $t\bar{t}$ non-all hadronic and dilepton high-stats samples}
+		\resizebox{1.0\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+                	 & ttH                        & Prompt bkg                 & Nonprompt bkg (no ttbar)                 & ttbar non-all hadronic                     & ttbar dilepton                   \\
+		\hline
+		Input            & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $22070812.000 \pm 4697.958$ & $12822814.000 \pm 3580.896$ \\
+		CutBlind         & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $22070812.000 \pm 4697.958$ & $12822814.000 \pm 3580.896$ \\
+		Cleaning         & $7196834.000 \pm 2682.692$ & $5923407.000 \pm 2433.805$ & $155015314.000 \pm 12450.515$ & $22070812.000 \pm 4697.958$ & $12822814.000 \pm 3580.896$ \\
+		CutSLORDLTrigger & $5124841.000 \pm 2263.811$ & $4621965.000 \pm 2149.876$ & $120080497.000 \pm 10958.125$ & $15309277.000 \pm 3912.707$ & $10316107.000 \pm 3211.870$  \\
+		Cut3Leptons      &   $247338.000 \pm 497.331$ &   $770943.000 \pm 878.034$ &    $1235939.000 \pm 1111.728$ &     $99709.000 \pm 315.767$ &    $156885.000 \pm 396.087$    \\
+		CutLepTightMVA   &   $103371.000 \pm 321.514$ &   $466468.000 \pm 682.985$ &      $574917.000 \pm 758.233$ &       $1985.000 \pm 44.553$ &       $3263.000 \pm 57.123$   \\
+		CutTrigFlat      &   $102924.000 \pm 320.818$ &   $465119.000 \pm 681.996$ &      $574130.000 \pm 757.714$ &       $1963.000 \pm 44.306$ &       $3235.000 \pm 56.877$   \\
+		CutZCandVeto     &    $88789.000 \pm 297.975$ &   $121906.000 \pm 349.150$ &      $105100.000 \pm 324.191$ &       $1718.000 \pm 41.449$ &       $2819.000 \pm 53.094$     \\
+		CutLowMass12     &    $87981.000 \pm 296.616$ &   $115654.000 \pm 340.079$ &      $102436.000 \pm 320.056$ &       $1682.000 \pm 41.012$ &       $2781.000 \pm 52.735$    \\
+		CutNTau          &      $5888.000 \pm 76.733$ &      $4825.000 \pm 69.462$ &          $896.000 \pm 29.933$ &          $11.000 \pm 3.317$ &          $15.000 \pm 3.873$ \\
+		Cut3LepCharge    &      $5519.000 \pm 74.290$ &      $4080.000 \pm 63.875$ &          $613.000 \pm 24.759$ &           $7.000 \pm 2.646$ &          $10.000 \pm 3.162$ \\
+		CutNJet          &      $4991.000 \pm 70.647$ &      $3004.000 \pm 54.809$ &          $356.000 \pm 18.868$ &           $2.000 \pm 1.414$ &           $5.000 \pm 2.236$\\
+		Cut1BTag         &      $4113.000 \pm 64.133$ &      $2173.000 \pm 46.615$ &          $237.000 \pm 15.395$ &           $1.000 \pm 1.000$ &           $3.000 \pm 1.732$ \\
+		CutTauTruthMatch &      $3627.000 \pm 60.225$ &      $1354.000 \pm 36.797$ &          $100.000 \pm 10.000$ &           $0.000 \pm 0.000$ &           $0.000 \pm 0.000$ \\
+		\hline
+		\end{tabular}}
+	\end{table}
+	
+	
+
+
+	\clearpage
+	\subsection{Estimate with (Prompt MC - truth-matched MC)} 
+	\begin{equation}
+		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Prompt MC}} - N_\tau (p_T)^{\text{Truth-matched prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Prompt MC}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched prompt MC}}}
+	\end{equation}
+
+	\begin{table}[htp]
+	\caption{Extrapolation and closure test, (Prompt MC - truth-matched)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|}
+	\hline
+	Integrated fake estimate	& SR MC	& Closure \\
+	\hline
+	$0.471\pm0.178$ 		& $0.859\pm0.191$ 		& $82\pm80$\% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+	
+	As is the case with the prompt MC without truth-match subtraction, most of the non-closure comes from the low-$p_T$ bin. Omitting this bin, the fake estimate ($0.368\pm0.152$) and MC prediction ($0.472\pm0.163$) close to within $28\pm70$\%. 
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/FF_Faketau_Prompt-truth.pdf}
+  	\caption{$p_T$-parametrized fake factors}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_Extrapolation_Prompt-truth.pdf}
+	\caption{Extrapolation sideband region $p_T$ spectrum}
+	\end{subfigure}
+	\caption{Fake factors and extrapolation sideband region, (Prompt MC - truth)}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_FakeEstimate_Prompt-truth.pdf}
+  	\caption{Fake estimate in $p_T$ bins}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_SRMC_Prompt-truth.pdf}
+	\caption{MC SR yield in $p_T$ bins}
+	\end{subfigure}
+	\caption{$p_T$ spectra for fake estimate and MC yield, (Prompt MC - truth)}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_prompt-truth.pdf}
+		\caption{Overlaid fake estimate and MC prediction (Prompt MC - truth)}
+	\end{figure}		
+			
+			
+	\subsection{$\tau_{had}$ Truth origin studies} 	
+			
+	\begin{figure}[H]
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/2lOStau_CR_TightLepMVA_TauMedium_eq2j_ge1b_Tau0TruthOrigin.pdf}
+  			\caption{Numerator region}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/2lOStau_CR_TightLepMVA_TauVeryLooseNotMedium_eq2j_ge1b_Tau0TruthOrigin.pdf}
+			\caption{Denominator ($\cancel{\tau}$) region }
+		\end{subfigure}%
+		\vskip\baselineskip
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/3ltau_SR_TightLepMVA_TauVeryLooseNotMedium_Tau0TruthOrigin.pdf}
+			\caption{Extrapolation region}
+		\end{subfigure}
+		\quad
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/3ltau_SR_TightLepMVA_TauMedium_Tau0TruthOrigin.pdf}
+			\caption{Signal region}
+		\end{subfigure}
+		\caption{Truth origin of $\tau_{had}$ in fake-estimate control regions and signal region}
+	\end{figure}
+			
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.65\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/3ltau_ttZ_CR_TightLepMVA_TauMedium_Tau0TruthOrigin.pdf}
+		\caption{Truth origin of $\tau_{had}$ in $t\bar{t}Z$ control region (signal region selection + selecting events with 1 pair of OS-SF leptons within the Z-mass window}
+	\end{figure}		
+			
+		
+
+	\begin{table}[htp]
+		\caption{Monte Carlo samples \& categorization}
+		\begin{center}
+			\begin{tabular}{|l|p{10cm}|}
+			\hline
+			ttH & \textcolor{blue}{343365} \textcolor{blue}{343366} \textcolor{blue}{343367} \\
+			\hline
+			Prompt bkg & ttZ, ttWW, tWZ, 4top, VH, diboson (4l) and triboson (4l): \textcolor{blue}{342284} \textcolor{blue}{342285} \textcolor{blue}{361063} \textcolor{blue}{361072} \textcolor{blue}{361073} \textcolor{blue}{361621} \textcolor{blue}{361623} \textcolor{blue}{361625} \textcolor{blue}{361626} \textcolor{blue}{410080} \textcolor{blue}{410081} \textcolor{blue}{410156} \textcolor{blue}{410157} \textcolor{blue}{410215} \textcolor{blue}{410218} \textcolor{blue}{410219} \textcolor{blue}{410220} \\
+			\hline
+			Nonprompt bkg &  tZ, ttW, 3top, single top, Z+jets, W+jets, diboson (non-4l), triboson (non-4l), tHbj, ttbar: \textcolor{blue}{304014} \textcolor{blue}{341998} \textcolor{blue}{342001} \textcolor{blue}{342004} \textcolor{blue}{343267} \textcolor{blue}{343270} \textcolor{blue}{343273} \textcolor{blue}{361064} \textcolor{blue}{361065} \textcolor{blue}{361066} \textcolor{blue}{361067} \textcolor{blue}{361068} \textcolor{blue}{361069} \textcolor{blue}{361070} \textcolor{blue}{361071} \textcolor{blue}{361077} \textcolor{blue}{361091} \textcolor{blue}{361092} \textcolor{blue}{361093} \textcolor{blue}{361094} \textcolor{blue}{361095} \textcolor{blue}{361096} \textcolor{blue}{361097} \textcolor{blue}{361620} \textcolor{blue}{361622} \textcolor{blue}{361624} \textcolor{blue}{361627} \textcolor{blue}{364100} \textcolor{blue}{364101} \textcolor{blue}{364102} \textcolor{blue}{364103} \textcolor{blue}{364104} \textcolor{blue}{364105} \textcolor{blue}{364106} \textcolor{blue}{364107} \textcolor{blue}{364108} \textcolor{blue}{364109} \textcolor{blue}{364110} \textcolor{blue}{364111} \textcolor{blue}{364112} \textcolor{blue}{364113} \textcolor{blue}{364114} \textcolor{blue}{364115} \textcolor{blue}{364116} \textcolor{blue}{364117} \textcolor{blue}{364118} \textcolor{blue}{364119} \textcolor{blue}{364120} \textcolor{blue}{364121} \textcolor{blue}{364122} \textcolor{blue}{364123} \textcolor{blue}{364124} \textcolor{blue}{364125} \textcolor{blue}{364126} \textcolor{blue}{364127} \textcolor{blue}{364128} \textcolor{blue}{364129} \textcolor{blue}{364130} \textcolor{blue}{364131} \textcolor{blue}{364132} \textcolor{blue}{364133} \textcolor{blue}{364134} \textcolor{blue}{364135} \textcolor{blue}{364136} \textcolor{blue}{364137} \textcolor{blue}{364138} \textcolor{blue}{364139} \textcolor{blue}{364140} \textcolor{blue}{364141} \textcolor{blue}{364156} \textcolor{blue}{364157} \textcolor{blue}{364158} \textcolor{blue}{364159} \textcolor{blue}{364160} \textcolor{blue}{364161} \textcolor{blue}{364162} \textcolor{blue}{364163} \textcolor{blue}{364164} \textcolor{blue}{364165} \textcolor{blue}{364166} \textcolor{blue}{364167} \textcolor{blue}{364168} \textcolor{blue}{364169} \textcolor{blue}{364170} \textcolor{blue}{364171} \textcolor{blue}{364172} \textcolor{blue}{364173} \textcolor{blue}{364174} \textcolor{blue}{364175} \textcolor{blue}{364176} \textcolor{blue}{364177} \textcolor{blue}{364178} \textcolor{blue}{364179} \textcolor{blue}{364180} \textcolor{blue}{364181} \textcolor{blue}{364182} \textcolor{blue}{364183} \textcolor{blue}{364184} \textcolor{blue}{364185} \textcolor{blue}{364186} \textcolor{blue}{364187} \textcolor{blue}{364188} \textcolor{blue}{364189} \textcolor{blue}{364190} \textcolor{blue}{364191} \textcolor{blue}{364192} \textcolor{blue}{364193} \textcolor{blue}{364194} \textcolor{blue}{364195} \textcolor{blue}{364196} \textcolor{blue}{364197} \textcolor{blue}{364198} \textcolor{blue}{364199} \textcolor{blue}{364200} \textcolor{blue}{364201} \textcolor{blue}{364202} \textcolor{blue}{364203} \textcolor{blue}{364204} \textcolor{blue}{364205} \textcolor{blue}{364206} \textcolor{blue}{364207} \textcolor{blue}{364208} \textcolor{blue}{364209} \textcolor{blue}{364210} \textcolor{blue}{364211} \textcolor{blue}{364212} \textcolor{blue}{364213} \textcolor{blue}{364214} \textcolor{blue}{364215} \textcolor{blue}{410011} \textcolor{blue}{410012} \textcolor{blue}{410015} \textcolor{blue}{410016} \textcolor{blue}{410025} \textcolor{blue}{410026} \textcolor{blue}{410049} \textcolor{blue}{410155} \textcolor{blue}{410501}\\
+			\hline
+			\end{tabular}
+		\end{center}
+		\label{mc_samples}
+	\end{table}
+
+
+
+
+
+	\clearpage
+	\subsection{Estimate with non-prompt MC} 
+	Here there is no subtraction performed and the estimate and closure test is done on the non-prompt MC only. 
+	\begin{equation}
+		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Non-prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Non-prompt MC}}}
+	\end{equation}
+
+	
+	\begin{table}[htp]
+	\caption{Extrapolation and closure test, (Non-prompt MC)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	$t\bar{t}$ sample 	& Integrated fake estimate	& SR MC		& Raw		& 	 Closure \\
+	\hline
+	PP8 non-all hadronic			& 	$0.590\pm0.146$ 		& $0.704\pm0.405$ 		& 238	&  $19\pm75$\% \\
+	PP8 non-all hadronic, high stats	& 	$0.661\pm0.130$ 		& $0.510\pm0.213$ 		& 238	&  $-23\pm36$\% \\
+	PP8 dilepton 					& 	$0.454\pm0.105$ 		& $0.532\pm0.234$ 		& 238	&  $17\pm58$\% \\
+	PP8 dilepton, high stats			& 	$0.530\pm0.089$ 		& $0.706\pm0.241$ 		& 240	&  $33\pm50$\% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+		
+	Figures are produced using the non-all hadronic high-stats sample. 
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/FF_Faketau_Nonprompt.pdf}
+  	\caption{$p_T$-parametrized fake factors}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_Extrapolation_Nonprompt.pdf}
+	\caption{Extrapolation sideband region $p_T$ spectrum}
+	\end{subfigure}
+	\caption{Fake factors and extrapolation sideband region, (Non-prompt MC)}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_FakeEstimate_Nonprompt.pdf}
+  	\caption{Fake estimate in $p_T$ bins}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_SRMC_Nonprompt.pdf}
+	\caption{MC SR yield in $p_T$ bins}
+	\end{subfigure}
+	\caption{$p_T$ spectra for fake estimate and MC yield, (Non-prompt MC)}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_nonprompt.pdf}
+		\caption{Overlaid fake estimate and MC prediction (Non-prompt MC)}
+	\end{figure}	
+		
+
+
+
+
+	\clearpage
+	\subsection{Estimate with prompt MC} 
+	Here there is no subtraction performed and the estimate and closure test is done on the prompt MC only. 
+	\begin{equation}
+		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Prompt MC}}}
+	\end{equation}
+
+	\begin{table}[htp]
+	\caption{Extrapolation and closure test, (Prompt MC)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|}
+	\hline
+	Integrated fake estimate	& SR MC	& Closure \\
+	\hline
+	$1.71\pm0.26$ 		& $2.70\pm0.15$ 		& $58\pm25$\% \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+	
+	A large difference between the fake estimate procedure and the MC prediction is seen at low $p_T$. If the lowest $p_T$ bin is omitted, the closure between the fake estimate ($1.41\pm0.16$) and the MC ($1.84\pm0.12$) improves to $30\pm18$\%. 
+		
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/FF_Faketau_Prompt.pdf}
+  	\caption{$p_T$-parametrized fake factors}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_Extrapolation_Prompt.pdf}
+	\caption{Extrapolation sideband region $p_T$ spectrum}
+	\end{subfigure}
+	\caption{Fake factors and extrapolation sideband region, (Prompt MC)}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_FakeEstimate_Prompt.pdf}
+  	\caption{Fake estimate in $p_T$ bins}
+  	\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/hist_SRMC_Prompt.pdf}
+	\caption{MC SR yield in $p_T$ bins}
+	\end{subfigure}
+	\caption{$p_T$ spectra for fake estimate and MC yield, (Prompt MC)}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_prompt.pdf}
+		\caption{Overlaid fake estimate and MC prediction (Prompt MC)}
+	\end{figure}	
+
+
+
+	
+	\clearpage
+	\subsection{Data/MC comparison for $t\bar{t}$ samples in $2\ell OS+\tau$} 
+	
+	\begin{table}[htp]
+	\caption{Data \& MC in $2\ell OS+\tau$ with different $t\bar{t}$ samples}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	$t\bar{t}$ sample 	& $t\bar{t}H$	& Prompt		& Nonprompt		& 	 Data 	& Data/MC\\
+	\hline
+	PP8 				& 	$2.467 \pm 0.080$ 		& $4.084 \pm 0.273$ 		& $924.376 \pm 28.516$	&  $951$ 	& $1.029$\\
+	PP8 (high stats)		& 			''	 		&			''			& $920.071 \pm 21.203$	&  	''	& $1.034$\\
+	PP8 (dilep) 			& 			''	 		& 			''			& $896.863 \pm 20.615$	&   	''	& $1.060$\\
+	PP8 (dilep, high stats)	& 			''			& 			''	 		& $882.809 \pm 16.779$	&   	''	& $1.077$\\ 
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+
+	\begin{table}[htp]
+	\caption{Data \& MC in $2\ell OS+\cancel{\tau}$ with different $t\bar{t}$ samples}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	$t\bar{t}$ sample 	& $t\bar{t}H$	& Prompt		& Nonprompt		& 	 Data	& Data/MC \\
+	\hline
+	PP8 				& 	$4.399 \pm 0.108$ 		& $9.589 \pm 0.608$ 		& $8664.639 \pm 76.760$	&  $8271$ & $0.954$\\
+	PP8 (high stats)		& 			''	 		&			''			& $8647.666 \pm 59.076$	&  	''	  & $0.956$\\
+	PP8 (dilep) 			& 			''	 		& 			''			& $8580.240 \pm 62.630$	&   	''	  & $0.964$\\
+	PP8 (dilep, high stats)	& 			''			& 			''	 		& $8590.145 \pm 49.257$	&   	''	  & $0.963$\\ 
+	\hline
+	\end{tabular}
+	\end{center}
+	\label{default}
+	\end{table}%
+	
+
+	\begin{figure}[H]
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_old/Overlay_FF_tau_pt_data.pdf}
+  			\caption{PP8 $t\bar{t}$ non-allhad (410501)}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new/Overlay_FF_tau_pt_data.pdf}
+			\caption{PP8 $t\bar{t}$ non-allhad (410501), high stats}
+		\end{subfigure}%
+		\vskip\baselineskip
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/FakesEstimate_data_pp8_dilepton_old/Overlay_FF_tau_pt_data.pdf}
+			\caption{PP8 $t\bar{t}$ dilepton (410503)}
+		\end{subfigure}
+		\quad
+		\begin{subfigure}[b]{.5\textwidth}
+			\includegraphics[width=0.82\linewidth]{figures/FakesEstimate_data_pp8_dilepton_new/Overlay_FF_tau_pt_data.pdf}
+			\caption{PP8 $t\bar{t}$ dilepton (410503), high stats}
+		\end{subfigure}
+		\caption{MC fake factors compared with data}
+	\end{figure}
+	
+
+
+	
+	
+	\clearpage
+	\subsection{Data-driven estimate} 
+	
+	\clearpage
+	\section{Ongoing to-do list} 
+	\begin{itemize} 	
+		\item Check results with new higher-stats $t\bar{t}$ samples, dilep-filtered samples and $t\bar{t}\gamma$ overlap samples
+		\item Look into possible problem with calculation of weights/errors 
+		\item Get fit framework running (see David Hohn) w. systematics ntuples 
+		\item \textcolor{green}{DONE:} Validate data yields between vector- and flat-branch ntuple versions 
+	\end{itemize} 
+	
+	
+	\clearpage
+	\section{Object selection}
 	
 	\clearpage
 	\section{Event selection} 
@@ -58,341 +682,11 @@
 			\item At least 2 jets
 			\item At least 1 b-tagged jet
 		\end{enumerate} 
-	\clearpage
-	\section{Baseline results} 
-		Signal region yields: \\
-		\resizebox{1.0\textwidth}{!}{
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-			\hline
-			              & ttH              & top+X               & Rare             & VV                  & ttW (NLO)        & ttZ (NLO)        & Z+jets (NNPDF)         & W+jets (NNPDF)      & Sum bkg                \\
-			\hline
-			Input         & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
-			CutBlind      & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
-			CutEventClean & $47.89 \pm 0.50$ & $6414.25 \pm 49.72$ & $84.56 \pm 4.84$ & $3981.13 \pm 85.54$ & $45.43 \pm 0.62$ & $99.38 \pm 0.94$ & $93527.96 \pm 2260.91$ & $273.74 \pm 106.48$ & $104426.45 \pm 2265.58$\\
-			CutTrigger    & $42.72 \pm 0.47$ & $5760.55 \pm 47.14$ & $75.98 \pm 4.57$ & $3654.80 \pm 82.85$ & $41.76 \pm 0.59$ & $92.44 \pm 0.90$ & $85157.55 \pm 2166.03$ &  $236.20 \pm 92.38$ &  $95019.29 \pm 2170.09$\\
-			CutNLep3      &  $2.82 \pm 0.09$ &     $7.72 \pm 1.74$ &  $6.40 \pm 1.08$ &    $87.35 \pm 5.39$ &  $0.81 \pm 0.07$ & $11.49 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $142.86 \pm 19.39$\\
-			CutTrigMatch  &  $2.80 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.39 \pm 1.08$ &    $86.50 \pm 5.36$ &  $0.81 \pm 0.07$ & $11.45 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $141.62 \pm 19.38$\\
-			CutLowMass01  &  $2.79 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.39 \pm 1.08$ &    $86.72 \pm 5.35$ &  $0.81 \pm 0.07$ & $11.43 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $141.83 \pm 19.37$\\
-			CutLowMass02  &  $2.77 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.38 \pm 1.08$ &    $85.84 \pm 5.34$ &  $0.81 \pm 0.07$ & $11.37 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $140.88 \pm 19.37$\\
-			CutLowMass12  &  $2.77 \pm 0.09$ &     $7.39 \pm 1.71$ &  $6.38 \pm 1.08$ &    $85.84 \pm 5.34$ &  $0.81 \pm 0.07$ & $11.37 \pm 0.25$ &      $29.09 \pm 18.51$ &     $0.00 \pm 0.00$ &      $140.88 \pm 19.37$\\
-			CutZVeto01    &  $2.59 \pm 0.08$ &     $7.39 \pm 1.71$ &  $3.26 \pm 0.67$ &    $60.79 \pm 4.56$ &  $0.75 \pm 0.07$ &  $7.88 \pm 0.21$ &      $20.06 \pm 16.81$ &     $0.00 \pm 0.00$ &      $100.13 \pm 17.51$\\
-			CutZVeto02    &  $2.35 \pm 0.08$ &     $7.22 \pm 1.70$ &  $2.09 \pm 0.45$ &    $45.40 \pm 4.03$ &  $0.69 \pm 0.07$ &  $5.75 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $80.79 \pm 17.37$\\
-			CutZVeto12    &  $2.35 \pm 0.08$ &     $7.22 \pm 1.70$ &  $2.08 \pm 0.45$ &    $44.70 \pm 3.99$ &  $0.69 \pm 0.07$ &  $5.71 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $80.06 \pm 17.36$\\
-			CutNTau1      &  $2.36 \pm 0.08$ &     $7.40 \pm 1.73$ &  $2.12 \pm 0.46$ &    $47.35 \pm 4.31$ &  $0.69 \pm 0.07$ &  $5.77 \pm 0.18$ &      $19.65 \pm 16.80$ &     $0.00 \pm 0.00$ &       $82.97 \pm 17.44$\\
-			CutCharge0    &  $2.11 \pm 0.07$ &     $3.83 \pm 1.33$ &  $1.82 \pm 0.46$ &    $38.21 \pm 3.35$ &  $0.34 \pm 0.05$ &  $4.95 \pm 0.17$ &      $16.93 \pm 16.59$ &     $0.00 \pm 0.00$ &       $66.07 \pm 16.99$\\
-			CutNJet       &  $1.86 \pm 0.07$ &     $1.35 \pm 0.71$ &  $0.54 \pm 0.04$ &     $7.65 \pm 1.35$ &  $0.24 \pm 0.04$ &  $4.43 \pm 0.16$ &        $0.00 \pm 0.00$ &     $0.00 \pm 0.00$ &        $14.21 \pm 1.54$\\
-			CutNBJet      &  $1.51 \pm 0.06$ &     $0.90 \pm 0.64$ &  $0.23 \pm 0.03$ &     $0.33 \pm 0.20$ &  $0.16 \pm 0.04$ &  $3.58 \pm 0.15$ &        $0.00 \pm 0.00$ &     $0.00 \pm 0.00$ &         $5.20 \pm 0.69$\\
-			\hline
-			\end{tabular}}
 
-		Samples: \\
-		\resizebox{1.0\textwidth}{!}{
-			\begin{tabular}{|l|p{10cm}|}
-			\hline
-			ttH & \textcolor{blue}{343365} \textcolor{blue}{343366} \textcolor{blue}{343367} \\
-			\hline
-			top+X & \textcolor{blue}{410000} \textcolor{blue}{410011} \textcolor{blue}{410012} \textcolor{blue}{410013} \textcolor{blue}{410014} \textcolor{blue}{410025} \textcolor{blue}{410026} \\
-			\hline
-			Rare & \textcolor{blue}{342284} \textcolor{blue}{342285} \textcolor{blue}{361620} \textcolor{blue}{361621} \textcolor{blue}{361622} \textcolor{blue}{361623} \textcolor{blue}{361624} \textcolor{blue}{361625} \textcolor{blue}{361626} \textcolor{blue}{361627} \textcolor{blue}{410049} \textcolor{blue}{410080} \textcolor{blue}{410081} \\
-			\hline
-			VV & \textcolor{blue}{361063} \textcolor{blue}{361064} \textcolor{blue}{361065} \textcolor{blue}{361066} \textcolor{blue}{361067} \textcolor{blue}{361068} \textcolor{blue}{361069} \textcolor{blue}{361070} \textcolor{blue}{361071} \textcolor{blue}{361072} \textcolor{blue}{361073} \textcolor{blue}{361077} \textcolor{blue}{361091} \textcolor{blue}{361092} \textcolor{blue}{361093} \textcolor{blue}{361094} \textcolor{blue}{361095} \textcolor{blue}{361096} \textcolor{blue}{361097} \\
-			\hline
-			ttW (NLO) & \textcolor{blue}{410155} \\
-			\hline
-			ttZ (NLO) & \textcolor{blue}{410157} \textcolor{blue}{410218} \textcolor{blue}{410219} \textcolor{blue}{410220} \\
-			\hline
-			Z+jets (NNPDF) & \textcolor{blue}{363102} \textcolor{blue}{363103} \textcolor{blue}{363104} \textcolor{blue}{363105} \textcolor{blue}{363106} \textcolor{blue}{363107} \textcolor{blue}{363108} \textcolor{blue}{363109} \textcolor{blue}{363110} \textcolor{blue}{363111} \textcolor{blue}{363112} \textcolor{blue}{363113} \textcolor{blue}{363114} \textcolor{blue}{363115} \textcolor{blue}{363116} \textcolor{blue}{363117} \textcolor{blue}{363118} \textcolor{blue}{363119} \textcolor{blue}{363120} \textcolor{blue}{363121} \textcolor{blue}{363122} \textcolor{blue}{363361} \textcolor{blue}{363362} \textcolor{blue}{363363} \textcolor{blue}{363364} \textcolor{blue}{363365} \textcolor{blue}{363366} \textcolor{blue}{363367} \textcolor{blue}{363368} \textcolor{blue}{363369} \textcolor{blue}{363370} \textcolor{blue}{363371} \textcolor{blue}{363372} \textcolor{blue}{363373} \textcolor{blue}{363374} \textcolor{blue}{363375} \textcolor{blue}{363376} \textcolor{blue}{363377} \textcolor{blue}{363378} \textcolor{blue}{363379} \textcolor{blue}{363380} \textcolor{blue}{363381} \textcolor{blue}{363382} \textcolor{blue}{363383} \textcolor{blue}{363384} \textcolor{blue}{363385} \textcolor{blue}{363386} \textcolor{blue}{363387} \textcolor{blue}{363388} \textcolor{blue}{363389} \textcolor{blue}{363390} \textcolor{blue}{363391} \textcolor{blue}{363392} \textcolor{blue}{363393} \textcolor{blue}{363394} \textcolor{blue}{363395} \textcolor{blue}{363396} \textcolor{blue}{363397} \textcolor{blue}{363398} \textcolor{blue}{363399} \textcolor{blue}{363400} \textcolor{blue}{363401} \textcolor{blue}{363402} \textcolor{blue}{363403} \textcolor{blue}{363404} \textcolor{blue}{363405} \textcolor{blue}{363406} \textcolor{blue}{363407} \textcolor{blue}{363408} \textcolor{blue}{363409} \textcolor{blue}{363410} \textcolor{blue}{363411} \\
-			\hline
-			W+jets (NNPDF) & \textcolor{blue}{363331} \textcolor{blue}{363332} \textcolor{blue}{363333} \textcolor{blue}{363334} \textcolor{blue}{363335} \textcolor{blue}{363336} \textcolor{blue}{363337} \textcolor{blue}{363338} \textcolor{blue}{363339} \textcolor{blue}{363340} \textcolor{blue}{363341} \textcolor{blue}{363342} \textcolor{blue}{363343} \textcolor{blue}{363344} \textcolor{blue}{363345} \textcolor{blue}{363346} \textcolor{blue}{363347} \textcolor{blue}{363348} \textcolor{blue}{363349} \textcolor{blue}{363350} \textcolor{blue}{363351} \textcolor{blue}{363352} \textcolor{blue}{363353} \textcolor{blue}{363354} \textcolor{blue}{363436} \textcolor{blue}{363437} \textcolor{blue}{363438} \textcolor{blue}{363439} \textcolor{blue}{363440} \textcolor{blue}{363441} \textcolor{blue}{363442} \textcolor{blue}{363443} \textcolor{blue}{363444} \textcolor{blue}{363445} \textcolor{blue}{363446} \textcolor{blue}{363447} \textcolor{blue}{363448} \textcolor{blue}{363449} \textcolor{blue}{363450} \textcolor{blue}{363451} \textcolor{blue}{363452} \textcolor{blue}{363453} \textcolor{blue}{363454} \textcolor{blue}{363455} \textcolor{blue}{363456} \textcolor{blue}{363457} \textcolor{blue}{363458} \textcolor{blue}{363459} \textcolor{blue}{363460} \textcolor{blue}{363461} \textcolor{blue}{363462} \textcolor{blue}{363463} \textcolor{blue}{363464} \textcolor{blue}{363465} \textcolor{blue}{363466} \textcolor{blue}{363467} \textcolor{blue}{363468} \textcolor{blue}{363469} \textcolor{blue}{363470} \textcolor{blue}{363471} \textcolor{blue}{363472} \textcolor{blue}{363473} \textcolor{blue}{363474} \textcolor{blue}{363475} \textcolor{blue}{363476} \textcolor{blue}{363477} \textcolor{blue}{363478} \textcolor{blue}{363479} \textcolor{blue}{363480} \textcolor{blue}{363481} \textcolor{blue}{363482} \textcolor{blue}{363483} \\
-			\hline
-			\end{tabular}}
-
-%%%%% Fake estimate studies %%%%%
-	\clearpage
-	\section{Fake estimate studies} 
-		Baseline strategy for estimating background contribution from events with a fake hadronic tau is as follows: 
-		\begin{itemize}
-			\item Calculate fake tau scale factor in some high stats $2\ell OS+\tau$ control regions  
-				\begin{itemize}
-					\item Remaining orthogonal to $2\ell OS+\tau$ analysis signal region
-				\end{itemize} 
-			\item Apply scale factor in $3\ell+\tau$
-			\item Perform closure test in ttbar MC 
-		\end{itemize}
-
-		Challenges associated with this strategy: 
-		\begin{itemize} 
-			\item Closure tests in MC are very stats-limited in $3\ell+\tau$ region - difficult to assess closure 
-			\item Must use control regions orthogonal to $2\ell OS+\tau$ - ultimately may need to directly collaborate with analysis for control regions
-			\item 
-		\end{itemize} 
-
-%%%%% Baseline results %%%%%
-		\clearpage
-		\subsection{Baseline results} 
-		CR definition: 
-		\begin{itemize} 
-			\item Same objects as $3\ell+\tau$
-			\item Exactly 2 leptons, opposite sign 
-			\item Exactly 1 tau, no sign requirement 
-			\item All other event cuts the same as the SR
-		\end{itemize} 
-
-		$2\ell OS+\tau_{had}$ CR, Tight light leptons: 
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			  & AntiTau,VeryLoose & Medium Tau \\
-			 \hline
-			 ttbar MC & $29047.87 \pm 104.44$   & $1824.09 \pm 26.17$     \\
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-		$2\ell OS+\tau_{had}$ CR, Loose light leptons:
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			  & AntiTau,VeryLoose & Medium Tau \\
-			 \hline
-			 ttbar MC & $32782.76 \pm 112.37$        & $2084.10 \pm 28.33$     \\
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-			\begin{itemize}
-		\item Apply $2\ell OS+\tau_{had}$ scale factors to extrapolate from $3\ell+\tau_{had}$(AntiTau) to SR 
-		\item Nominal signal region is Tight light leptons, Medium taus 
-	\end{itemize}
-	
-	$3\ell+\tau_{had}$, Tight light leptons def'n
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			                   & AntiTau VeryLoose & Medium Tau \\
-			 \hline
-			 MC (ttbar) prediction &         $9.16 \pm 1.83$        & $0.90 \pm 0.64$     \\
-			 Scaled MC                &     -         & $\approx 0.58$     \\  
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-	$3\ell+\tau_{had}$, Loose light leptons def'n
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			                   & AntiTau VeryLoose & Medium Tau \\
-			 \hline
-			 MC (ttbar) prediction &         $21.69 \pm 2.79$        & $0.70 \pm 0.44$     \\
-			 Scaled MC                &       -       &   $\approx 1.35$   \\  
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-%%%%% Fake estimate control region flavour composition %%%%%
-		\newpage
-		\subsection{Fake estimate control region flavour composition} 
-		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 3 jets 
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			  & AntiTau,VeryLoose & Medium Tau \\
-			 \hline
-			 ttbar MC & $14199.32 \pm 72.60$   & $892.27 \pm 18.14$     \\
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 4 jets
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			  & AntiTau,VeryLoose & Medium Tau \\
-			 \hline
-			 ttbar MC & $5740.30 \pm 45.85$        & $366.76 \pm 11.58$     \\
-			\hline 
-		\end{tabular}
-	\end{table}%
-
-		$2\ell OS+\tau_{had}$ CR, Tight light leptons, at least 5 jets 
-	\begin{table}[h!]
-		\begin{tabular}{|c|c|c|}
-			\hline 
-			  & AntiTau,VeryLoose & Medium Tau \\
-			 \hline
-			 ttbar MC & $2032.23 \pm 27.06$        & $128.13 \pm 6.69$     \\
-			\hline 
-		\end{tabular}
-	\end{table}%
 	
 
-%%%%% v26 yields %%%%%
-	\newpage
-	\section{Yields with v26\_02 group ntuples} 
 	
-	3l1tau, LepTight, TauMedium\\
-	\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutBlind      & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutEventClean & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutTrigger    & $5424.63 \pm 48.54$ & $398.20 \pm 11.32$ & $5822.84 \pm 49.84$\\
-CutNLep3      &    $34.10 \pm 4.82$ &    $2.01 \pm 0.75$ &    $36.11 \pm 4.88$\\
-CutTrigMatch  &    $33.39 \pm 4.80$ &    $2.01 \pm 0.75$ &    $35.40 \pm 4.86$\\
-CutLowMass01  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
-CutLowMass02  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
-CutLowMass12  &    $32.28 \pm 4.78$ &    $2.01 \pm 0.75$ &    $34.29 \pm 4.83$\\
-CutNTau1      &    $32.71 \pm 4.82$ &    $2.06 \pm 0.77$ &    $34.77 \pm 4.88$\\
-CutCharge0    &    $16.70 \pm 2.50$ &    $0.82 \pm 0.42$ &    $17.53 \pm 2.54$\\
-CutNJet       &     $7.54 \pm 1.62$ &    $0.00 \pm 0.00$ &     $7.54 \pm 1.62$\\
-CutNBJet      &     $2.59 \pm 0.92$ &    $0.00 \pm 0.00$ &     $2.59 \pm 0.92$\\
-CutZVeto01    &     $2.34 \pm 0.88$ &    $0.00 \pm 0.00$ &     $2.34 \pm 0.88$\\
-CutZVeto02    &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
-CutZVeto12    &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
-CutZVeto      &     $1.86 \pm 0.81$ &    $0.00 \pm 0.00$ &     $1.86 \pm 0.81$\\
-\hline
-\end{tabular}
-
-3l1tau, LepTightMVA, TauMedium \\
-\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutBlind      & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutEventClean & $6562.39 \pm 53.40$ & $488.94 \pm 12.66$ & $7051.33 \pm 54.88$\\
-CutTrigger    & $5424.63 \pm 48.54$ & $398.20 \pm 11.32$ & $5822.84 \pm 49.84$\\
-CutNLep3      &    $34.10 \pm 4.82$ &    $2.01 \pm 0.75$ &    $36.11 \pm 4.88$\\
-CutPromptLep0 &    $33.64 \pm 4.81$ &    $2.01 \pm 0.75$ &    $35.65 \pm 4.87$\\
-CutPromptLep1 &    $24.78 \pm 4.53$ &    $1.38 \pm 0.66$ &    $26.16 \pm 4.58$\\
-CutPromptLep2 &     $0.81 \pm 0.47$ &    $0.00 \pm 0.00$ &     $0.81 \pm 0.47$\\
-CutTrigMatch  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
-CutLowMass01  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
-CutLowMass02  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
-CutLowMass12  &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
-CutNTau1      &     $0.56 \pm 0.40$ &    $0.00 \pm 0.00$ &     $0.56 \pm 0.40$\\
-CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-\hline
-\end{tabular}
-
-3l1tau, LepLoose (Gradient Iso), TauMedium \\
-\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutBlind      & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutEventClean & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutTrigger    & $4592.20 \pm 44.73$ & $320.11 \pm 10.30$ & $4912.32 \pm 45.90$\\
-CutNLep3      &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
-CutTrigMatch  &     $9.38 \pm 1.75$ &    $0.66 \pm 0.48$ &    $10.04 \pm 1.81$\\
-CutLowMass01  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
-CutLowMass02  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
-CutLowMass12  &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
-CutNTau1      &     $8.89 \pm 1.71$ &    $0.66 \pm 0.48$ &     $9.54 \pm 1.78$\\
-CutCharge0    &     $4.05 \pm 1.13$ &    $0.24 \pm 0.24$ &     $4.29 \pm 1.15$\\
-CutNJet       &     $2.11 \pm 0.90$ &    $0.00 \pm 0.00$ &     $2.11 \pm 0.90$\\
-CutNBJet      &     $1.15 \pm 0.75$ &    $0.00 \pm 0.00$ &     $1.15 \pm 0.75$\\
-CutZVeto01    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
-CutZVeto02    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
-CutZVeto12    &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
-CutZVeto      &     $0.89 \pm 0.70$ &    $0.00 \pm 0.00$ &     $0.89 \pm 0.70$\\
-\hline
-\end{tabular}
-
-3l1tau, LepLoose (Gradient Iso) MVA, TauMedium\\
-\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutBlind      & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutEventClean & $5408.77 \pm 48.81$ & $377.31 \pm 11.20$ & $5786.08 \pm 50.08$\\
-CutTrigger    & $4592.20 \pm 44.73$ & $320.11 \pm 10.30$ & $4912.32 \pm 45.90$\\
-CutNLep3      &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
-CutPromptLep0 &     $9.65 \pm 1.77$ &    $0.66 \pm 0.48$ &    $10.31 \pm 1.83$\\
-CutPromptLep1 &     $7.96 \pm 1.62$ &    $0.42 \pm 0.42$ &     $8.38 \pm 1.67$\\
-CutPromptLep2 &     $0.77 \pm 0.45$ &    $0.00 \pm 0.00$ &     $0.77 \pm 0.45$\\
-CutTrigMatch  &     $0.50 \pm 0.36$ &    $0.00 \pm 0.00$ &     $0.50 \pm 0.36$\\
-CutLowMass01  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
-CutLowMass02  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
-CutLowMass12  &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
-CutNTau1      &     $0.25 \pm 0.25$ &    $0.00 \pm 0.00$ &     $0.25 \pm 0.25$\\
-CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-\hline
-\end{tabular}
-
-3l1tau, LepLoose (Loose iso), TauMedium \\
-\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutBlind      & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutEventClean & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutTrigger    & $6078.41 \pm 51.21$ & $444.74 \pm 11.89$ & $6523.15 \pm 52.57$\\
-CutNLep3      &    $43.88 \pm 5.26$ &    $2.07 \pm 0.78$ &    $45.95 \pm 5.31$\\
-CutTrigMatch  &    $43.13 \pm 5.24$ &    $2.07 \pm 0.78$ &    $45.21 \pm 5.30$\\
-CutLowMass01  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
-CutLowMass02  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
-CutLowMass12  &    $40.97 \pm 5.19$ &    $2.07 \pm 0.78$ &    $43.04 \pm 5.25$\\
-CutNTau1      &    $41.50 \pm 5.24$ &    $2.12 \pm 0.79$ &    $43.62 \pm 5.30$\\
-CutCharge0    &    $21.81 \pm 2.82$ &    $0.85 \pm 0.43$ &    $22.66 \pm 2.85$\\
-CutNJet       &    $10.27 \pm 1.89$ &    $0.00 \pm 0.00$ &    $10.27 \pm 1.89$\\
-CutNBJet      &     $4.15 \pm 1.18$ &    $0.00 \pm 0.00$ &     $4.15 \pm 1.18$\\
-CutZVeto01    &     $3.89 \pm 1.16$ &    $0.00 \pm 0.00$ &     $3.89 \pm 1.16$\\
-CutZVeto02    &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
-CutZVeto12    &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
-CutZVeto      &     $3.40 \pm 1.10$ &    $0.00 \pm 0.00$ &     $3.40 \pm 1.10$\\
-\hline
-\end{tabular}
-
-3l1tau, LepLoose (Loose iso) MVA, TauMedium\\
-\begin{tabular}{|c|c|c|c|}
-\hline
-              & ttbar               & single top         & Sum bkg            \\
-\hline
-Input         & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutBlind      & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutEventClean & $7617.62 \pm 57.41$ & $571.96 \pm 13.90$ & $8189.58 \pm 59.07$\\
-CutTrigger    & $6078.41 \pm 51.21$ & $444.74 \pm 11.89$ & $6523.15 \pm 52.57$\\
-CutNLep3      &    $43.88 \pm 5.26$ &    $2.07 \pm 0.78$ &    $45.95 \pm 5.31$\\
-CutPromptLep0 &    $42.57 \pm 5.22$ &    $2.07 \pm 0.78$ &    $44.64 \pm 5.28$\\
-CutPromptLep1 &    $31.26 \pm 4.89$ &    $1.42 \pm 0.68$ &    $32.68 \pm 4.94$\\
-CutPromptLep2 &     $1.11 \pm 0.56$ &    $0.00 \pm 0.00$ &     $1.11 \pm 0.56$\\
-CutTrigMatch  &     $0.84 \pm 0.49$ &    $0.00 \pm 0.00$ &     $0.84 \pm 0.49$\\
-CutLowMass01  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
-CutLowMass02  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
-CutLowMass12  &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
-CutNTau1      &     $0.58 \pm 0.42$ &    $0.00 \pm 0.00$ &     $0.58 \pm 0.42$\\
-CutCharge0    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNJet       &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutNBJet      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto01    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto02    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto12    &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-CutZVeto      &     $0.00 \pm 0.00$ &    $0.00 \pm 0.00$ &     $0.00 \pm 0.00$\\
-\hline
-\end{tabular}
-
-
-
-
-\end{document} 
+	\end{document} 
 
 
 
