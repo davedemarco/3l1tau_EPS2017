@@ -29,11 +29,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-
-
 \MakeOuterQuote{"}
 
-\author{David A. DeMarco}
+\author{David A. DeMarco, Tina Ojeda, Pierre Savard}
 \title{$t\bar{t}H$ $3\ell+\tau$ Run 2 analysis overview}
 
 %% 0=chapter, 1=section, 2=subsection, 3=subsubsection, etc.
@@ -45,14 +43,39 @@
 	\maketitle
 	\begin{center}
 	\end{center}	 
-	\clearpage 
-	
+	%\clearpage 
+	\tableofcontents
 
-	
+	\section{Object selection} 
+
+	\section{Event selection \& signal region optimization} 
+
+	\begin{table}[H]
+		\caption{MC yields in $3\ell+\tau_{\text{had}}$ signal region} 
+		\resizebox{1.0\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{$3\ell+\tau_{\text{had}}$ signal region} 	& ttH                & ttZ                  & Rare prompt            & Nonprompt                & ttbar                    & Sum bkg                     \\
+		\hline
+		Loose leptons      &  $124.63 \pm 0.80$ &    $530.60 \pm 1.96$ &   $8407.69 \pm 158.88$ &        $65597.72 \pm 766.32$ &     $24430.22 \pm 90.19$ &        $98966.23 \pm 787.80$\\
+		Tight leptons   &   $55.15 \pm 0.54$ &    $321.57 \pm 1.37$ &    $3054.69 \pm 35.20$ &        $10148.02 \pm 155.36$ &       $484.23 \pm 12.51$ &        $14008.51 \pm 159.79$\\
+		Trigger-match    &   $54.85 \pm 0.53$ &    $321.02 \pm 1.37$ &    $3021.01 \pm 35.06$ &        $10086.83 \pm 153.61$ &       $479.41 \pm 12.46$ &        $13908.27 \pm 158.05$\\
+		Z-veto     &   $46.81 \pm 0.49$ &     $80.71 \pm 0.71$ &    $1758.00 \pm 23.77$ &         $2698.82 \pm 115.74$ &       $421.55 \pm 11.79$ &         $4959.07 \pm 118.74$\\
+		Low-mass veto     &   $46.27 \pm 0.49$ &     $76.56 \pm 0.69$ &    $1599.28 \pm 22.52$ &         $2456.71 \pm 111.58$ &       $412.77 \pm 11.68$ &         $4545.32 \pm 114.43$\\
+		NTau==1         &    $2.52 \pm 0.09$ &      $3.46 \pm 1.27$ &       $11.46 \pm 1.88$ &              $8.30 \pm 2.46$ &          $1.97 \pm 0.76$ &             $25.19 \pm 3.43$\\
+		Total charge==0   &    $2.33 \pm 0.09$ &      $3.16 \pm 0.15$ &       $10.39 \pm 1.79$ &              $5.72 \pm 1.75$ &          $1.12 \pm 0.63$ &             $20.39 \pm 2.59$\\
+		NJet $\ge$2       &    $2.04 \pm 0.08$ &      $2.77 \pm 0.14$ &        $2.75 \pm 0.70$ &              $1.27 \pm 0.37$ &          $0.38 \pm 0.27$ &              $7.18 \pm 0.85$\\
+		NBjet $\ge$1        &    $1.68 \pm 0.08$ &      $2.26 \pm 0.13$ &        $0.44 \pm 0.07$ &              $0.30 \pm 0.04$ &          $0.21 \pm 0.21$ &              $3.21 \pm 0.26$\\
+		Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0.06$ &              $0.12 \pm 0.03$ &          $0.00 \pm 0.00$ &              $1.96 \pm 0.12$\\
+		\hline
+		\end{tabular}}
+	\end{table}
+
+
 	\section{Fake $\tau_{had}$ estimate} 
 	\subsection{Fake factor method} 
 	A fake factor method is used to estimate the background contribution from processes with a fake hadronic tau. The fake $\tau_{had}$ estimate is extrapolated from a region that is enriched in the relevant backgrounds, primarily $t\bar{t}$, using a fake factor derived in a high-stats $2\ell OS+\tau_{had}$ region. The fake factor represents the probability of a $\tau_{had}$ that passes a loosened selection to pass the tight selection. It is parametrized in bins of $p_T$ of the $\tau_{had}$ and is computed as the ratio of events with a good $\tau_{had}$ and those with an anti-$\tau_{had}$. \\
-	
+
 	\begin{equation}
 		FF(p_T) = \frac{N_\tau (p_T)}{N_{\cancel{\tau}} (p_T)  }   
 	\end{equation}
@@ -73,7 +96,7 @@
 	\end{table}%
 
 	The 2-jet selection above ensures orthogonality with the $2\ell \text{(OS)}+\tau_{had}$ channel signal region and can be used for extrapolation because the fake factor is flat with respect to jet multiplicity (ADD FIGURE AND REFERENCE). The $p_T$-dependent fake factor is applied to a $3\ell+\cancel{\tau}_{had}$ sideband extrapolation region which has an identical selection to the signal region but with an anti-$\tau_{had}$. 
-	
+
 	\begin{table}[htp]
 		\caption{Fake estimate extrapolation region} 
 		\begin{center}
@@ -88,9 +111,9 @@
 			\end{tabular}
 		\end{center}
 	\end{table}%
-	
+
 	In Table \ref{yields}, the MC yields are listed for the fake factor derivation and extrapolation regions and for the $3\ell+\tau_{had}$ signal region. Background processes listed as prompt are those which may yield a $3\ell+\tau_{had}$ final state without an object faking a light lepton or $\tau_{had}$ while non-prompt processes are those which require a faked object. The full list of processes, samples and their categoration can be found in Table \ref{mc_samples}. 
-	
+
 	\begin{table}[htp]
 		\caption{Nominal Monte Carlo yields for fake estimate regions and for the $3\ell+\tau_{had}$ signal region ($t\bar{t}$ from Powheg+Pythia8 non-all hadronic low stats). Entries labeled "true" require the $\tau_{had}$ to be truth-matched.  }
 		\begin{center}
@@ -108,28 +131,9 @@
 		\end{center}
 		\label{yields}
 	\end{table}%
-	
-	\begin{table}
-\resizebox{1.0\textwidth}{!}{
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-                 & ttH                & ttZ                  & Rare prompt            & Nonprompt                & ttbar                    & Sum bkg                     \\
-\hline
-Loose leptons      &  $124.63 \pm 0.80$ &    $530.60 \pm 1.96$ &   $8407.69 \pm 158.88$ &        $65597.72 \pm 766.32$ &     $24430.22 \pm 90.19$ &        $98966.23 \pm 787.80$\\
-Tight leptons   &   $55.15 \pm 0.54$ &    $321.57 \pm 1.37$ &    $3054.69 \pm 35.20$ &        $10148.02 \pm 155.36$ &       $484.23 \pm 12.51$ &        $14008.51 \pm 159.79$\\
-Trigger-match    &   $54.85 \pm 0.53$ &    $321.02 \pm 1.37$ &    $3021.01 \pm 35.06$ &        $10086.83 \pm 153.61$ &       $479.41 \pm 12.46$ &        $13908.27 \pm 158.05$\\
-Z-veto     &   $46.81 \pm 0.49$ &     $80.71 \pm 0.71$ &    $1758.00 \pm 23.77$ &         $2698.82 \pm 115.74$ &       $421.55 \pm 11.79$ &         $4959.07 \pm 118.74$\\
-Low-mass veto     &   $46.27 \pm 0.49$ &     $76.56 \pm 0.69$ &    $1599.28 \pm 22.52$ &         $2456.71 \pm 111.58$ &       $412.77 \pm 11.68$ &         $4545.32 \pm 114.43$\\
-NTau==1         &    $2.52 \pm 0.09$ &      $3.46 \pm 1.27$ &       $11.46 \pm 1.88$ &              $8.30 \pm 2.46$ &          $1.97 \pm 0.76$ &             $25.19 \pm 3.43$\\
-Total charge==0   &    $2.33 \pm 0.09$ &      $3.16 \pm 0.15$ &       $10.39 \pm 1.79$ &              $5.72 \pm 1.75$ &          $1.12 \pm 0.63$ &             $20.39 \pm 2.59$\\
-NJet $\ge$2       &    $2.04 \pm 0.08$ &      $2.77 \pm 0.14$ &        $2.75 \pm 0.70$ &              $1.27 \pm 0.37$ &          $0.38 \pm 0.27$ &              $7.18 \pm 0.85$\\
-NBjet $\ge$1        &    $1.68 \pm 0.08$ &      $2.26 \pm 0.13$ &        $0.44 \pm 0.07$ &              $0.30 \pm 0.04$ &          $0.21 \pm 0.21$ &              $3.21 \pm 0.26$\\
-Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0.06$ &              $0.12 \pm 0.03$ &          $0.00 \pm 0.00$ &              $1.96 \pm 0.12$\\
-\hline
-\end{tabular}}
-\end{table}
 
-	
+
+
 	\clearpage
 	\subsection{MC estimate results and closure tests} 
 	 To check the closure of this procedure, the extrapolation is performed and the integrated value compared with the signal region yield in MC. Closure is calculated as:
@@ -147,7 +151,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\begin{equation}
 		N_{\tau} (p_T)^{\text{fakes}} = FF(p_T)_{\text{MC (data)}}\cdot\big[N_{\cancel{\tau}} (p_T)^{\text{All MC (data)}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched MC}} - N_{\cancel{\tau}} (p_T)^{t\bar{t}H \text{MC}} \big]
 	\end{equation}
-	
+
 	Results are shown below using four different Powheg+Pythia8 $t\bar{t}$ samples. The PP8 sample listed (DSID 410501) is the baseline, and is compared with a dilepton-filtered sample (DSID 410503) and two higher-stats productions. Figures are produced using the non-all hadronic high-stats sample. 
 
 	\begin{table}[htp]
@@ -157,8 +161,8 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\hline
 	$t\bar{t}$ sample 	& Integrated fake estimate	& SR MC	&  Closure \\
 	\hline
-	PP8 non-all hadronic			& 	$0.869\pm0.171$ 		& $1.446\pm0.462$ 		& $66\pm62$\% \\
-	PP8 non-all hadronic, high stats	& 	$0.941\pm0.157$ 		& $1.252\pm0.308$		& $33\pm40$\% \\
+	PP8 non-all hadronic				& 	$0.869\pm0.171$ 		& $1.446\pm0.462$ 		& $66\pm62$\% \\
+	PP8 non-all hadronic, high stats		& 	$0.941\pm0.157$ 		& $1.252\pm0.308$		& $33\pm40$\% \\
 	PP8 dilepton 					& 	$0.733\pm0.136$ 		& $1.273\pm0.323$		& $74\pm55$\% \\
 	PP8 dilepton, high stats			& 	$0.806\pm0.125$ 		& $1.447\pm0.327$ 		& $80\pm49$\% \\
 	\hline
@@ -166,7 +170,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-		
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -182,7 +186,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Fake factors and extrapolation sideband region, (All MC - Truth-matched MC - $t\bar{t}H$)}
 	\end{figure}
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -221,11 +225,12 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Comparison of fake factors derived from prompt MC, non-prompt MC and from the full combined (prompt + non-prompt - truth) method}
 	\end{figure}
+
+
 	
-			
-		
-		
 	\clearpage
+	\appendix
+	\section{Appendix: Additional studies} 
 	\subsection{Estimate with non-prompt MC - truth-matched} 
 	\begin{equation}
 		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Non-prompt MC}} - N_\tau (p_T)^{\text{Truth-matched non-prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Non-prompt MC}} - N_{\cancel{\tau}} (p_T)^{\text{Truth-matched non-prompt MC}}}
@@ -247,9 +252,9 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-		
+
 	Figures are produced using the non-all hadronic high-stats sample. 
-		
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -265,7 +270,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Fake factors and extrapolation sideband region, (Non-prompt MC - truth)}
 	\end{figure}
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -312,7 +317,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
  		\hline
  		\end{tabular}}
 	\end{table}
-		
+
 	\begin{table}[htp]
 		\caption{Raw yield comparison for signal region comparing low-stats $t\bar{t}$ non-all hadronic and dilepton high-stats samples}
 		\resizebox{1.0\textwidth}{!}{
@@ -337,8 +342,6 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		\hline
 		\end{tabular}}
 	\end{table}
-	
-	
 
 
 	\clearpage
@@ -360,9 +363,9 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-	
+
 	As is the case with the prompt MC without truth-match subtraction, most of the non-closure comes from the low-$p_T$ bin. Omitting this bin, the fake estimate ($0.368\pm0.152$) and MC prediction ($0.472\pm0.163$) close to within $28\pm70$\%. 
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -378,7 +381,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Fake factors and extrapolation sideband region, (Prompt MC - truth)}
 	\end{figure}
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -400,10 +403,10 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_prompt-truth.pdf}
 		\caption{Overlaid fake estimate and MC prediction (Prompt MC - truth)}
 	\end{figure}		
-			
-			
+
+
 	\subsection{$\tau_{had}$ Truth origin studies} 	
-			
+
 	\begin{figure}[H]
 		\begin{subfigure}[b]{.5\textwidth}
 			\includegraphics[width=0.82\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/2lOStau_CR_TightLepMVA_TauMedium_eq2j_ge1b_Tau0TruthOrigin.pdf}
@@ -426,14 +429,15 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		\end{subfigure}
 		\caption{Truth origin of $\tau_{had}$ in fake-estimate control regions and signal region}
 	\end{figure}
-			
+
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.65\linewidth]{figures/Plots_MC_April10_pp8-new_PromptPlots/3ltau_ttZ_CR_TightLepMVA_TauMedium_Tau0TruthOrigin.pdf}
 		\caption{Truth origin of $\tau_{had}$ in $t\bar{t}Z$ control region (signal region selection + selecting events with 1 pair of OS-SF leptons within the Z-mass window}
 	\end{figure}		
-			
-		
+
+
 
 	\begin{table}[htp]
 		\caption{Monte Carlo samples \& categorization}
@@ -462,7 +466,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		FF(p_T)_{MC} = \frac{N_\tau (p_T)^{\text{Non-prompt MC}}}{N_{\cancel{\tau}} (p_T)^{\text{Non-prompt MC}}}
 	\end{equation}
 
-	
+
 	\begin{table}[htp]
 	\caption{Extrapolation and closure test, (Non-prompt MC)}
 	\begin{center}
@@ -479,9 +483,9 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-		
+
 	Figures are produced using the non-all hadronic high-stats sample. 
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -497,7 +501,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Fake factors and extrapolation sideband region, (Non-prompt MC)}
 	\end{figure}
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -519,9 +523,6 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		\includegraphics[width=0.7\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_new_scaledHists/Overlay_FF_tau_pt_nonprompt.pdf}
 		\caption{Overlaid fake estimate and MC prediction (Non-prompt MC)}
 	\end{figure}	
-		
-
-
 
 
 	\clearpage
@@ -544,9 +545,9 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-	
+
 	A large difference between the fake estimate procedure and the MC prediction is seen at low $p_T$. If the lowest $p_T$ bin is omitted, the closure between the fake estimate ($1.41\pm0.16$) and the MC ($1.84\pm0.12$) improves to $30\pm18$\%. 
-		
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -562,7 +563,7 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{subfigure}
 	\caption{Fake factors and extrapolation sideband region, (Prompt MC)}
 	\end{figure}
-	
+
 	\begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -587,10 +588,10 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 
 
 
-	
+
 	\clearpage
 	\subsection{Data/MC comparison for $t\bar{t}$ samples in $2\ell OS+\tau$} 
-	
+
 	\begin{table}[htp]
 	\caption{Data \& MC in $2\ell OS+\tau$ with different $t\bar{t}$ samples}
 	\begin{center}
@@ -624,12 +625,12 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{center}
 	\label{default}
 	\end{table}%
-	
+
 
 	\begin{figure}[H]
 		\begin{subfigure}[b]{.5\textwidth}
 			\includegraphics[width=0.82\linewidth]{figures/FakesEstimate_data_pp8_nonallhad_old/Overlay_FF_tau_pt_data.pdf}
-  			\caption{PP8 $t\bar{t}$ non-allhad (410501)}
+			\caption{PP8 $t\bar{t}$ non-allhad (410501)}
 		\end{subfigure}
 		\hfill
 		\begin{subfigure}[b]{.5\textwidth}
@@ -648,16 +649,12 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 		\end{subfigure}
 		\caption{MC fake factors compared with data}
 	\end{figure}
-	
 
-
-	
-	
 	\clearpage
 	\subsection{Data-driven estimate} 
 	
 	\clearpage
-	\section{Ongoing to-do list} 
+	\section{Appendix: Ongoing to-do list} 
 	\begin{itemize} 	
 		\item Check results with new higher-stats $t\bar{t}$ samples, dilep-filtered samples and $t\bar{t}\gamma$ overlap samples
 		\item Look into possible problem with calculation of weights/errors 
@@ -666,27 +663,9 @@ Truth-match tau &    $1.41 \pm 0.06$ &      $1.53 \pm 0.11$ &        $0.31 \pm 0
 	\end{itemize} 
 	
 	
-	\clearpage
-	\section{Object selection}
-	
-	\clearpage
-	\section{Event selection} 
-		Signal region event selection:
-		\begin{enumerate}
-			\item Exactly 3 light leptons
-			\item At least 1 trigger-matched light lepton 
-			\item Low-mass dilepton invariant mass cut ($m\ell\ell>12$ GeV) 
-			\item Z-mass dilepton invariant mass veto (Z mass = $91.2$ GeV with $10$ GeV window) 
-			\item Exactly 1 hadronic tau 
-			\item Total light lepton + hadronic tau charge == 0 
-			\item At least 2 jets
-			\item At least 1 b-tagged jet
-		\end{enumerate} 
 
-	
+\end{document} 
 
-	
-	\end{document} 
 
 
 
